@@ -1,0 +1,14 @@
+Package: rje
+Type: Package
+Title: Miscellaneous useful functions
+Version: 1.10.1
+Date@R: format(Sys.time(), "%Y-%m-%d")
+Authors@R: c(person("Robin", "Evans", email="evans@stats.ox.ac.uk",
+    role=c("aut", "cre")), person("Mathias", "Drton", role=c("ctb")))
+Description: A series of useful functions, some available in different forms in
+    other packages, but which have been extended, sped up, or otherwise
+    modified in some way considered useful to the author.
+Depends:
+    R (>= 2.0.0)
+License: GPL (>= 2)
+LazyLoad: yes
