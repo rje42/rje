@@ -1,0 +1,74 @@
+\name{setmatch}
+\alias{setmatch}
+\alias{subsetmatch}
+\alias{setsetdiff}
+\alias{setsetequal}
+
+\title{
+Set Operations
+}
+\description{
+Series of functions extending existing vector operations to lists of vectors.
+}
+\usage{
+setmatch(x, y, nomatch = NA_integer_)
+subsetmatch(x, y, nomatch = NA_integer_)
+setsetdiff(x, y)
+setsetequal(x, y)
+}
+\arguments{
+  \item{x}{
+list of vectors.
+}
+  \item{y}{
+list of vectors.
+}
+  \item{nomatch}{
+value to be returned in the case when no match is found.
+Note that it is coerced to integer.
+}
+}
+\details{
+\code{setmatch} checks whether each vector in the list \code{x} is also
+contained in the list \code{y}, and if so returns position of the first such 
+vector in \code{y}.  The ordering of the elements of the vector is irrelevant, 
+as they are considered to be sets.
+
+\code{subsetmatch} is similar to \code{setmatch}, except vectors in \code{x}
+are searched to see if they are subsets of vectors in \code{y}.
+
+\code{setsetdiff} is a setwise version of \code{setdiff}, and \code{setsetequal}
+a setwise version of \code{setequal}.
+}
+\value{
+\code{setmatch} and \code{subsetmatch} return a vector of integers of length 
+the same as the list \code{x}.
+
+\code{setsetdiff} returns a sublist \code{x}.
+
+\code{setsetequal} returns a logical of length 1.
+}
+\author{
+Robin Evans
+}
+\note{
+These functions are not recursive, in the sense that they cannot be used
+to test lists of lists.  They also do not reduce to the vector case.
+}
+
+\seealso{
+\code{\link{match}}, \code{\link{setequal}}, \code{\link{setdiff}}
+}
+\examples{
+x = list(1:2, 1:3)
+y = list(1:4, 1:3)
+setmatch(x, y)
+subsetmatch(x, y)
+setsetdiff(x, y)
+
+x = list(1:3, 1:2)
+y = list(2:1, c(2,1,3))
+setsetequal(x, y)
+}
+\keyword{arith}
+

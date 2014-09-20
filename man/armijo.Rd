@@ -1,0 +1,97 @@
+\name{armijo}
+\alias{armijo}
+\alias{coarseLine}
+\title{
+Generic functions to aid finding local minima given search direction
+}
+\description{
+Allows use of an Armijo rule or coarse line search as part of minimisation (or maximisation) of a differentiable function of multiple arguments (via gradient descent or similar).  Repeated application of one of these rules should (hopefully) lead to a local minimum.
+}
+\usage{
+armijo(fun, x, dx, beta = 3, sigma = 0.5, grad, 
+                 maximise = FALSE, searchup = TRUE, adj.start = 1, ...)
+coarseLine(fun, x, dx, beta = 3, maximise = FALSE, ...)
+}
+\arguments{
+  \item{fun}{
+a function whose first argument is a numeric vector 
+}
+  \item{x}{
+a starting value to be passed to \code{fun}
+}
+  \item{dx}{
+numeric vector containing feasible direction for search; defaults to \code{-grad} for ordinary gradient descent
+}
+  \item{beta}{
+numeric value (greater than 1) giving factor by which to adjust step size
+}
+  \item{sigma}{
+numeric value (less than 1) giving steepness criterion for move
+}
+  \item{grad}{
+numeric gradient of \code{f} at \code{x} (will be estimated if not provided)
+}
+\item{maximise}{
+logical: if set to \code{TRUE} search is for a maximum rather than a minimum.
+  }
+\item{searchup}{
+logical: if set to \code{TRUE} method will try to find largest move satisfying Armijo criterion, rather than just accepting the first it sees
+  }
+\item{adj.start}{
+an initial adjustment factor for the step size.
+  }
+  \item{\dots}{
+other arguments to be passed to \code{fun}
+}
+}
+\details{
+\code{coarseLine} performs a stepwise search and tries to find the integer \eqn{k} minimising \eqn{f(x_k)} where
+\deqn{x_k = x + \beta^k dx.}
+Note \eqn{k} may be negative.
+
+\code{armijo} implements an Armijo rule for moving, which is to say that 
+\deqn{f(x_k) - f(x) < - \sigma \beta^k dx \cdot \nabla_x f.}{f(x_k) - f(x) < - \sigma \beta^k dx . grad.}
+This has better convergence guarantees than a simple line search, but may be slower in practice.  See Bertsekas (1999) for theory underlying the Armijo rule.
+
+Each of these rules should be applied repeatedly to achieve convergence (see example below).
+}
+\value{
+A list comprising
+\item{best}{the value of the function at the final point of evaluation}
+\item{adj}{the constant in the step, i.e. \eqn{\beta^n}}
+\item{move}{the final move; i.e. \eqn{\beta^n dx}}
+\item{code}{an integer indicating the result of the function; 
+0 = returned OK, 
+1 = very small move suggested, may be at minimum already, 
+2 = failed to find minimum: function evaluated to \code{NA} or was always larger than \eqn{f(x)} (direction might be infeasible), 
+3 = failed to find minimum: stepsize became too small or large without satisfying rule.}
+}
+\references{
+Bertsekas, D.P. \emph{Nonlinear programming}, 2nd Edition. Athena, 1999.
+}
+\author{
+Robin Evans
+}
+
+\examples{
+
+# minimisation of simple function of three variables
+x = c(0,-2,4)
+f = function(x) ((x[1]-3)^2 + x[2]*sin(x[2]) + exp(x[3]) - x[3])
+
+tol = .Machine$double.eps
+mv = 1
+
+while (mv > tol) {
+  # or replace with coarseLine()
+  out = armijo(f, x, sigma=0.1)
+  x = out$x
+  mv = sum(out$move^2)
+}
+
+# correct solution is c(3,0,0)
+x
+
+}
+
+\keyword{optimize}

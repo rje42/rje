@@ -1,0 +1,43 @@
+\name{greaterThan}
+\alias{greaterThan}
+\title{
+Comparing numerical values
+}
+\description{
+Just a wrapper for comparing numerical values, for use with quicksort.
+}
+\usage{
+greaterThan(x, y)
+}
+\arguments{
+  \item{x}{
+A numeric vector.
+}
+  \item{y}{
+A numeric vector.
+}
+}
+\details{
+  Just returns \code{-1} if \code{x} is less than \code{y}, \code{1} if
+  \code{x} is greater, and \code{0} if they are equal (according to
+  \code{==}).  The vectors wrap as usual if they are of different lengths.
+}
+\value{
+An integer vector.
+}
+\author{
+Robin Evans
+}
+
+\seealso{
+\code{`<`} for traditional Boolean operator.
+}
+\examples{
+greaterThan(4,6)
+
+# Use in sorting algorithm.
+quickSort(c(5,2,9,7,6), f=greaterThan)
+order(c(5,2,9,7,6))
+}
+
+\keyword{arith}

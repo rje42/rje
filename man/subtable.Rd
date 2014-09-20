@@ -1,0 +1,62 @@
+\name{subtable}
+\alias{subarray}
+\alias{subarray<-}
+\alias{subtable}
+\alias{subtable<-}
+\title{
+Subset an array
+}
+\description{
+More flexible calls of \code{[} on an array.
+}
+\usage{
+subarray(x, levels, drop = TRUE)
+subtable(x, variables, levels, drop = TRUE)
+`subarray<-`(x, levels, value)
+`subtable<-`(x, variables, levels, value)
+}
+\arguments{
+  \item{x}{
+An array.
+}
+  \item{variables}{
+An integer vector containing the dimensions of \code{x} to subset.
+}
+  \item{levels}{
+A list or vector containing values to retain.
+}
+  \item{drop}{
+Logical indicating whether dimensions with only 1 retained should be dropped.  Defaults to \code{TRUE}.
+}
+  \item{value}{
+Value to assign to entries in table.
+}
+}
+\details{
+Essentially just allows more flexible calls of \code{[} on an array.
+
+\code{subarray} requires the values for each dimension should be specified, so for a \eqn{2 \times 2 \times 2}{2 x 2 x 2} array \code{x}, \code{subarray(x, list(1,2,1:2))} is just \code{x[1,2,1:2]}.
+
+\code{subtable} allows unspecified dimensions to be retained automatically.  Thus, for example \code{subtable(x, c(2,3), list(1, 1:2))} is \code{x[,1,1:2]}.
+
+}
+\value{
+Returns an array of dimension \code{sapply(value, length)} if \code{drop=TRUE}, otherwise \emph{specified} dimensions of size 1 are dropped.  Dimensions which are unspecified in \code{subtable} are never dropped.
+}
+\author{
+Mathias Drton, Robin Evans
+}
+
+\seealso{
+\code{\link{Extract}}
+}
+\examples{
+x = array(1:8, rep(2,3))
+subarray(x, c(2,1,2)) == x[2,1,2]
+
+x[2,1:2,2,drop=FALSE]
+subarray(x, list(2,1:2,2), drop=FALSE)
+
+subtable(x, c(2,3), list(1, 1:2))
+}
+\keyword{array}

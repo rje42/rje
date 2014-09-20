@@ -1,0 +1,48 @@
+\name{expit}
+\alias{expit}
+\alias{logit}
+\title{
+Expit and Logit.
+}
+\description{
+Functions to take the expit and logit of numerical vectors.
+}
+\usage{
+expit(x)
+logit(x)
+}
+
+\arguments{
+  \item{x}{
+ vector of real numbers; for \code{logit} to return a sensible value these 
+should be between 0 and 1.
+}
+}
+\details{
+\code{logit} implements the usual logit function, which is
+\deqn{logit(x) = \log\frac{x}{1-x},}{logit(x) = log(x/(1-x)),}
+and \code{expit} its inverse:
+\deqn{expit(x) = \frac{e^x}{1+e^x}.}{expit(x) = e^x/(1+e^x).}
+It is assumed that \code{logit(0) = -Inf} and \code{logit(1) = Inf}, and
+correspondingly for \code{expit}.
+}
+\value{
+A real vector corresponding to the expits or logits of \code{x}
+}
+\author{
+Robin Evans
+}
+
+\section{Warning }{Choosing very large (positive or negative) values to apply to 
+\code{expit} may result in inaccurate inversion (see example below).}
+
+\examples{
+x = c(5, -2, 0.1)
+y = expit(x)
+logit(y)
+
+# Beware large values!
+logit(expit(100))
+}
+
+\keyword{arith}
