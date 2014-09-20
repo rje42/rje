@@ -1,3 +1,4 @@
+#' @export logit
 logit <-
 function (x) 
 {

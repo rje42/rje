@@ -1,3 +1,4 @@
+#' @export setsetdiff
 setsetdiff <-
 function (x, y) 
 {

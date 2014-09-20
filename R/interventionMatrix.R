@@ -1,3 +1,4 @@
+#' @export interventionMatrix
 interventionMatrix <-
 function (x, variables, condition, dim = NULL, incols = FALSE) 
 {

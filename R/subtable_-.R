@@ -1,3 +1,4 @@
+#' @export subtable<-
 `subtable<-` <-
 function (x, variables, levels, value) 
 {

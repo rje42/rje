@@ -1,3 +1,4 @@
+#' @export subarray<-
 `subarray<-` <-
 function (x, levels, value) 
 {

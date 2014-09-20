@@ -1,3 +1,4 @@
+#' @export %subof%
 `%subof%` <-
 function (x, y) 
 {

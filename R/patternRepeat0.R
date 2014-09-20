@@ -1,3 +1,4 @@
+#' @export patternRepeat0
 patternRepeat0 <-
 function (which, n, careful = TRUE, keep.order = FALSE) 
 {

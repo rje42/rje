@@ -1,3 +1,4 @@
+#' @export setsetequal
 setsetequal <-
 function (x, y) 
 {

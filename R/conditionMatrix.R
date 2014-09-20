@@ -1,3 +1,4 @@
+#' @export conditionMatrix
 conditionMatrix <-
 function (x, variables, condition = NULL, condition.value = NULL, 
     dim = NULL, incols = FALSE) 

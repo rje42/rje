@@ -1,3 +1,4 @@
+#' @export printCount
 printCount <-
 function (i, first = 1, prev = i - 1, last = NULL) 
 {

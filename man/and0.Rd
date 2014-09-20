@@ -11,19 +11,19 @@ and0(x, y)
 }
 \value{
 A logical vector of length \code{max(length(x), length(y))} with
-  entries \code{x[1] & x[2]} etc.; each entry of \code{x} or \code{y} is
-  \code{TRUE} if it is non-zero.
+entries \code{x[1] & x[2]} etc.; each entry of \code{x} or \code{y} is
+\code{TRUE} if it is non-zero.
 }
 \description{
 Fast but loose implementations of AND and OR logical operators.
 }
 \details{
-Returns pairwise application of logical operators AND and OR.
-  Vectors are recycled as usual.
+Returns pairwise application of logical operators AND and OR.  Vectors are
+recycled as usual.
 }
 \note{
 These functions should only be used with well understood vectors, and
-  may not deal with unusual cases correctly.
+may not deal with unusual cases correctly.
 }
 \examples{
 and0(c(0,1,0), c(1,1,0))

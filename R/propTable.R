@@ -1,3 +1,4 @@
+#' @export propTable
 propTable <-
 function (x, margin = NULL) 
 {

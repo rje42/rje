@@ -1,3 +1,4 @@
+#' @export subsetmatch
 subsetmatch <-
 function (x, y, nomatch = NA_integer_) 
 {

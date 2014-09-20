@@ -1,3 +1,4 @@
+#' @export coarseLine
 coarseLine <-
 function (fun, x, dx, beta = 3, maximise = FALSE, ...) 
 {
