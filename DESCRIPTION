@@ -8,7 +8,8 @@ Authors@R: c(person("Robin", "Evans", email="evans@stats.ox.ac.uk",
 Description: A series of useful functions, some available in different forms in
     other packages, but which have been extended, sped up, or otherwise
     modified in some way considered useful to the author.
-Depends:
+Depends: 
     R (>= 2.0.0)
 License: GPL (>= 2)
 LazyLoad: yes
+Suggests: testthat
