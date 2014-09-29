@@ -2,3 +2,75 @@
 
 * added C built function patternRepeat0() 
 
+* added rowMins() and rowMaxs().
+	
+---
+
+2014-04-22  Version 1.9
+
+* sped up patternRepeat()
+
+* added functions marginTable() and propTable() for faster versions
+        of base functions margin.table() and prop.table()
+
+* renamed condition.table() to conditionTable() etc.
+
+* added assignment function versions of subtable()
+
+---	
+
+2014-02-23  Version 1.8
+
+* fixed bug in armijo()
+
+* added functions marginMatrix(), conditionMatrix(), interventionMatrix().
+
+---
+
+2014-02-12  Version 1.7
+
+* added function printCount()
+
+* improved efficiency of printPercentage()
+
+* fixed bug in armijo()
+
+---
+
+2013-06-29  Version 1.6
+
+* added functions armijo() and coarseLine()
+
+* added function cubeHelix()
+
+* restored compatibility with R >=2.0.0.
+
+---	
+	
+2013-05-15  Version 1.4
+
+* added function arrayInd() and indexBox()
+
+* added fast AND and OR comparisons and0() and or0()
+
+* added fsapply() for slightly faster but dangerous version of sapply().
+
+* sped up patternRepeat()
+
+---
+
+2013-03-15  Version 1.3
+
+* added function quickSort(), and comparisons functions greaterThan() and subsetOrder()
+
+* Updated condition.table() to allow calculation of full conditional distribution.
+
+* Added condition.table2().
+
+* Added intervention.table().
+
+---
+	
+2012-01-06  Version 1.2
+
+* Added a NAMESPACE file to avoid pre and post R v2.14.0 dependency problems

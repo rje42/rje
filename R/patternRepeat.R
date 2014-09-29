@@ -3,7 +3,7 @@
 #' Recreate patterns for collapsed arrays
 #' 
 #' 
-#' This function allows for the construction of complex repeating patterns
+#' These functions allow for the construction of complex repeating patterns
 #' corresponding to those obtained by unwrapping arrays.  Consider an array
 #' with dimensions \code{n}; then for each value of the dimensions in
 #' \code{which}, this function returns a vector which places the corresponding
