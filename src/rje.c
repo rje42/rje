@@ -169,7 +169,7 @@ void patternRepeat (int *perm, int *permlen, int *dim, int *ndim, int *out) {
 
   /* if necessary, first perumte the indices as given to correct order */
   for (int i=0; i<permlen[0]; i++) {
-    startlen *= dim[i];
+    startlen *= dim[perm[i]];
     if (perm[i+1] < perm[i] && i<permlen[0]-1) reorder = 1;
   }
 

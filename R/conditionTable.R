@@ -99,16 +99,12 @@ function (x, variables, condition = NULL, condition.value = NULL)
     cond <- propTable(marg, condition)
     if (is.null(condition.value)) {
         out = cond
-        dim(out) = dim(x)[c(variables, condition)]
     }
     else if (is.list(condition.value)) {
         out = subtable(cond, condition, condition.value)
-        dim(out) = c(dim(x)[variables], fsapply(condition.value, 
-            length))
     }
     else {
         out = subtable(cond, condition, condition.value)
-        dim(out) = dim(x)[variables]
     }
     return(out)
 }

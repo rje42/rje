@@ -73,9 +73,9 @@ function (x, margin = NULL, order = TRUE)
         kpm = dx[sm]
         out = out2[seq_len(prod(kpm))]
         dim(out) = kpm
-        if (any(sm != margin)) 
+        if (any(sm != margin))
             out = aperm.default(out, rank(margin))
-        dimnames(out) = dimnames(x)[sm]
+        dimnames(out) = dimnames(x)[margin]        
     }
     else {
         kpm = dx[margin]
