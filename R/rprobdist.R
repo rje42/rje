@@ -39,7 +39,7 @@ rprobdist <- function (dim, d, cond, alpha=1)
   if (missing(d)) d = length(dim)
   else if (length(dim) < d) dim = dim * rep.int(1L, d)
   else if (length(dim) > d) stop("More than 'd' dimensions supplied")
-
+  
   if (any(dim < 0)) stop("Dimensions must be non-negative")
   if (any(alpha < 0)) stop("Parameters must be non-negative")
 
@@ -49,7 +49,7 @@ rprobdist <- function (dim, d, cond, alpha=1)
   if (length(dim) > 1) dim(out) = dim
   if (!missing(cond)) {
     if (any(cond > length(dim)) || any(cond <= 0)) stop("cond must be ")
-    out = conditionTable(out, seq_along(dim)[-cond], cond)
+    out = conditionTable(out, seq_along(dim)[-cond], cond, order=FALSE)
   }
 
   return(out)

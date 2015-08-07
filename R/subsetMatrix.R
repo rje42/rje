@@ -33,3 +33,29 @@ function (n)
     }
     out
 }
+
+
+#' Orthogonal Design Matrix
+#' 
+#' Produces a matrix whose rows correspond to an orthogonal binary design matrix.
+#' 
+#' @param n integer containing the number of elements in the set.
+#' @return An integer matrix of dimension 2^n by 2^n containing 1 and -1.
+#' @note The output matrix has orthogonal columns and is symmetric, so (up to a constant) is its own inverse.
+#' @author Robin Evans
+#' @seealso \code{\link{combinations}}, \code{\link{subsetMatrix}}.
+#' @keywords arith
+#' @examples
+#' 
+#' designMatrix(3)
+#' 
+#' @export designMatrix
+designMatrix <-
+  function (n) 
+  {
+    out = matrix(1, 1, 1)
+    for (i in seq_len(n)) {
+      out = matrix(c(1, 1, 1, -1), 2, 2) %x% out
+    }
+    out
+  }

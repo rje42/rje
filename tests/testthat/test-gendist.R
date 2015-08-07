@@ -15,6 +15,14 @@ test_that("rprobdist gives probability distributions", {
   expect_equal(sum(rprobdist(3, 4)), 1)
 })
 
+cp <- rprobdist(3, 4, cond=c(2,4))
+
+test_that("rprobdist gives conditional probability distributions", {
+  expect_true(all(rprobdist(3, 4, cond=2) >= 0))
+  expect_equal(sum(cp), 9)
+  expect_equal(apply(cp, c(2,4), sum), matrix(1,3,3))
+})
+
 test_that("rprobdist returns errors appropriately", {
   expect_error(rprobdist(c(2,2,2), d=2))
   expect_error(rprobdist(c(2,-1,2)))

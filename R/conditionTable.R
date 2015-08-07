@@ -42,6 +42,10 @@
 #' @param condition.value An integer vector or list of the same length as
 #' \code{condition}, containing the values to condition with.  If \code{NULL},
 #' then the full conditional distribution is returned.
+#' @param undef if conditional probability is undefined, what should the value
+#' be given as
+#' @param order logical - if \code{TRUE} conditioned variables come last, if 
+#' \code{FALSE} variables are in original order.
 #' @param dim Integer vector containing dimensions of variables.  Assumed all
 #' binary if not specified.
 #' @param incols Logical specifying whether not the distributions are stored as
@@ -84,18 +88,24 @@
 #' 
 #' @export conditionTable
 conditionTable <-
-function (x, variables, condition = NULL, condition.value = NULL) 
+function (x, variables, condition = NULL, condition.value = NULL, undef = NaN, order = TRUE) 
 {
     if (!is.null(condition.value) && length(condition) != length(condition.value)) 
         stop("condition and condition.value must have same length")
     if (length(intersect(variables, condition)) > 0) 
         stop("margin and condition must be disjoint")
     k = length(variables)
-    marg = marginTable(x, c(variables, condition))
+    if (order) marg = marginTable(x, c(variables, condition), order=TRUE)
+    else marg = marginTable(x, sort.int(c(variables, condition)), order=FALSE)
     if (length(condition) == 0) 
         return(marg/sum(marg))
-    variables <- seq_len(k)
-    condition <- k + seq_along(condition)
+    if (order) {
+      # variables <- seq_len(k)
+      condition <- k + seq_along(condition)
+    }
+    else {
+      condition <- match(sort.int(condition), sort.int(c(variables, condition)))
+    }
     cond <- propTable(marg, condition)
     if (is.null(condition.value)) {
         out = cond
@@ -106,6 +116,7 @@ function (x, variables, condition = NULL, condition.value = NULL)
     else {
         out = subtable(cond, condition, condition.value)
     }
+    if (!is.nan(undef[1])) out[is.nan(out)] = undef[1]
     return(out)
 }
 

@@ -63,7 +63,7 @@ all.equal(p_int, p_int2)
 ### Multiple distributions
 
 ```{r}
-rprobMat(100, dim=2, d=4)
+#rprobMat(100, dim=2, d=4)
 ```
 
 ### Reconstructing Joint Distributions

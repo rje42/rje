@@ -1,7 +1,8 @@
+#' @describeIn conditionTable
 #' @export conditionMatrix
 conditionMatrix <-
 function (x, variables, condition = NULL, condition.value = NULL, 
-    dim = NULL, incols = FALSE) 
+    dim = NULL, incols = FALSE, undef = NaN) 
 {
     d = 2 - incols
     if (is.null(dim)) 
@@ -37,5 +38,6 @@ function (x, variables, condition = NULL, condition.value = NULL,
     else {
         out = joint/c(cond[, patt])
     }
+    if (!is.nan(undef[1])) out[is.nan(out)] = undef[1]
     out
 }

@@ -7,8 +7,8 @@
 #' @details \tabular{ll}{
 #' Package: \tab rje\cr
 #' Type: \tab Package\cr
-#' Version: \tab 1.10\cr
-#' Date: \tab 2014-08-31\cr
+#' Version: \tab 1.10.3\cr
+#' Date: \tab 2015-08-07\cr
 #' License: \tab GPL (>= 2)\cr
 #' LazyLoad: \tab yes\cr
 #' }

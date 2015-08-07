@@ -24,28 +24,6 @@ void indexBox (int *upp, int *lwr, int *dim, int *len, int *out) {
   for (k = 0; k < totlen; k++) out[k] += offset;
 }
 
-
-void arrayInd (int *ind, int *dim, int *nind, int *ndim, int *out) {
-  int i,j;
-  int rem;
-  int prod = 1;
-
-  for (j = 0; j < *ndim; j++) prod *= dim[j];
-
-  for (i = 0; i < *nind; i++) {
-    if (ind[i] < 1 || ind[i] > prod)
-
-    ind[i] -= 1;
-
-    for (j = 0; j < *ndim; j++) {
-      rem = ind[i] % dim[j];
-      out[i + j*nind[0]] = rem + 1;
-      ind[i] -= rem;
-      ind[i] /= dim[j];
-    }
-  }
-}
-
 void doone (double *x, int *dim, int k, int rmv) {
   int i1, i2, i3;
   int before = 1, before2, after = 1;

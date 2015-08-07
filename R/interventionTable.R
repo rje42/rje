@@ -41,7 +41,7 @@
 interventionTable <-
 function (x, variables, condition) 
 {
-    tmp = conditionTable2(x, variables, condition)
+    tmp = conditionTable2(x, variables, condition, undef=.5)
     out = x/tmp
     out
 }
