@@ -47,9 +47,11 @@ function (x, variables, levels, drop = TRUE)
     if (is.list(levels)) 
         dims[variables] = fsapply(levels, length)
     else dims[variables] = 1
-    if (isTRUE(drop)) 
+    if (isTRUE(drop)) {
         dims = dims[!(seq_along(dims) %in% variables) | dims != 1]
+        if (length(dims) == 1) dims = integer(0)
+    }
     out = subarray(x, indexlist)
-    dim(out) = dims
+    if (length(dims) > 0) dim(out) = dims
     return(out)
 }
