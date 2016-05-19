@@ -8,11 +8,11 @@ Authors@R: c(person("Robin", "Evans", email="evans@stats.ox.ac.uk",
 Description: A series of useful functions, some available in different forms in
     other packages, but which have been extended, sped up, or otherwise
     modified in some way considered useful to the author.
-Depends: 
+Depends:
     R (>= 2.0.0),
 License: GPL (>= 2)
 LazyLoad: yes
-Suggests: 
+Suggests:
     testthat,
     knitr
 VignetteBuilder: knitr
@@ -20,3 +20,4 @@ Packaged: 2014-08-29 14:45:55 UTC; evans
 Author: Robin Evans [aut, cre],
     Mathias Drton [ctb]
 Maintainer: Robin Evans <evans@stats.ox.ac.uk>
+RoxygenNote: 5.0.1
