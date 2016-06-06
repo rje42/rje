@@ -64,5 +64,5 @@ function (i, n, dp = 0, first = 1, last = n, prev = i - 1)
     if (i == last) 
         out = paste(out, "\n", sep = "")
     cat(out)
-    return(NULL)
+    invisible(NULL)
 }
