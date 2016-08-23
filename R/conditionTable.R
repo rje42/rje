@@ -90,23 +90,26 @@
 conditionTable <-
 function (x, variables, condition = NULL, condition.value = NULL, undef = NaN, order = TRUE) 
 {
-    if (!is.null(condition.value) && length(condition) != length(condition.value)) 
+    if (!is.null(condition.value) && length(condition) != length(condition.value))
         stop("condition and condition.value must have same length")
-    if (length(intersect(variables, condition)) > 0) 
+    if (length(intersect(variables, condition)) > 0)
         stop("margin and condition must be disjoint")
     k = length(variables)
     if (order) marg = marginTable(x, c(variables, condition), order=TRUE)
     else marg = marginTable(x, sort.int(c(variables, condition)), order=FALSE)
-    if (length(condition) == 0) 
+    if (length(condition) == 0)
         return(marg/sum(marg))
     if (order) {
       # variables <- seq_len(k)
       condition <- k + seq_along(condition)
+      dimx = c(prod(dim(marg)[1:k]), prod(dim(marg)[condition]))
+      cond = .C("propTable0", as.double(marg), as.integer(dimx), package = "rje")[[1]]
+      dim(cond) = dim(marg)
     }
     else {
       condition <- match(sort.int(condition), sort.int(c(variables, condition)))
+      cond <- propTable(marg, condition)
     }
-    cond <- propTable(marg, condition)
     if (is.null(condition.value)) {
         out = cond
     }

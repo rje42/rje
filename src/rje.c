@@ -41,7 +41,7 @@ void doone (double *x, int *dim, int k, int rmv) {
     for (i1 = 0; i1 < before; i1++) {
       y = 0.0;
       for (i2 = 0; i2 < dim[rmv-1]; i2++) {
-	y += x[i1+before*i2+before2*i3];
+        y += x[i1+before*i2+before2*i3];
       }
       x[i1+before*i3] = y;
     }
@@ -50,6 +50,15 @@ void doone (double *x, int *dim, int k, int rmv) {
   return;
 }
 
+/* Marginalize an array
+
+  double *x    - array of doubles to be marginalized
+  int    *dim  - vector of integers giving dimension of x
+  int    *k    - length of dim
+  int    *rmv  - vector of integers giving dimensions to be marginalized
+  int    *nrmv - length of rmv
+ 
+ */
 void marginTable (double *x, int *dim, int *k, int *rmv, int *nrmv) {
   for (int i=0; i < nrmv[0]; i++) {
     if (dim[rmv[i]-1] > 1) doone(x, dim, k[0], rmv[i]);
@@ -60,6 +69,23 @@ void marginTable (double *x, int *dim, int *k, int *rmv, int *nrmv) {
     }
     for (int j=i+1; j < nrmv[0]; j++) {
       rmv[j] -= (rmv[j] > rmv[i] ? 1 : 0);
+    }
+  }
+}
+
+/* given dim[0] by dim[1] array 'x', normalize 
+    so that columns sum to 1. */
+void propTable0 (double *x, int *dim) {
+  long double y = 0.0;
+
+  for (int i=0; i < dim[1]; i++) {
+    y = 0.0;
+    
+    for (int j=0; j < dim[0]; j++) {
+      y += x[dim[0]*i + j];
+    }
+    for (int j=0; j < dim[0]; j++) {
+      x[dim[0]*i + j] /= y;
     }
   }
 }
