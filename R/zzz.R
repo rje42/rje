@@ -6,3 +6,5 @@
                         pattern = "[.]Rmd$", package = pkgname)
   #register_vignette_engines(pkgname)
 }
+
+USE_CXX1X = TRUE

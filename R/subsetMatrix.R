@@ -17,7 +17,7 @@
 #' @return An integer matrix of dimension 2^n by 2^n.
 #' @note The inverse of the output matrix is just \code{abs(subsetMatrix(n))}.
 #' @author Robin Evans
-#' @seealso \code{\link{combinations}}, \code{\link{powerSet}}.
+#' @seealso \code{\link{combinations}}, \code{\link{powerSet}},  \code{\link{designMatrix}}.
 #' @keywords arith
 #' @examples
 #' 
@@ -28,8 +28,9 @@ subsetMatrix <-
 function (n) 
 {
     out = matrix(1, 1, 1)
+    M = matrix(c(1, -1, 0, 1), 2, 2)
     for (i in seq_len(n)) {
-        out = matrix(c(1, -1, 0, 1), 2, 2) %x% out
+        out = .kronecker(M, out, make.dimnames = FALSE)
     }
     out
 }
@@ -54,8 +55,9 @@ designMatrix <-
   function (n) 
   {
     out = matrix(1, 1, 1)
+    M = matrix(c(1, 1, 1, -1), 2, 2)
     for (i in seq_len(n)) {
-      out = matrix(c(1, 1, 1, -1), 2, 2) %x% out
+      out = .kronecker(M, out, make.dimnames=FALSE)
     }
     out
   }
