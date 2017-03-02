@@ -103,7 +103,7 @@ function (x, variables, condition = NULL, condition.value = NULL, undef = NaN, o
       # variables <- seq_len(k)
       condition <- k + seq_along(condition)
       dimx = c(prod(dim(marg)[1:k]), prod(dim(marg)[condition]))
-      cond = .C("propTable0", as.double(marg), as.integer(dimx), package = "rje")[[1]]
+      cond = .C("propTable0", as.double(marg), as.integer(dimx), PACKAGE = "rje")[[1]]
       dim(cond) = dim(marg)
     }
     else {

@@ -67,7 +67,7 @@ function (x, margin = NULL, order = TRUE)
     if (!is.double(x)) 
         x = as.double(x)
     out2 = .C("marginTable", x, as.integer(dx), as.integer(k), 
-        as.integer(rmv), as.integer(length(rmv)), package = "rje")[[1]]
+        as.integer(rmv), as.integer(length(rmv)), PACKAGE = "rje")[[1]]
     if (order) {
         sm = sort.int(margin)
         kpm = dx[sm]

@@ -17,7 +17,7 @@
 #' @param dim integer vector of array dimensions.
 #' @return An integer vector giving relative positions of the indices.
 #' @author Robin Evans
-#' @seealso \code{\link[rje]{arrayInd}}.
+#' @seealso \code{\link[base]{arrayInd}}.
 #' @keywords array
 #' @examples
 #' 
@@ -48,6 +48,6 @@ function (upp, lwr, dim)
     if (length(lwr) != ld) 
         lwr = rep(lwr, length.out = ld)
     out = .C("indexBox", as.integer(upp), as.integer(lwr), as.integer(dim), 
-        ld, integer(prod(upp - lwr + 1)), package = "rje")
+        ld, integer(prod(upp - lwr + 1)), PACKAGE = "rje")
     return(out[[5]])
 }
