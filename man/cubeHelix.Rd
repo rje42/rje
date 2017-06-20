@@ -77,11 +77,6 @@ legend(-0.6,4,legend=c("4. cube helix", "3. heat", "2. rainbow", "1. terrain"), 
 
 
 }
-\author{
-Dave Green
-
-Robin Evans
-}
 \references{
 Green, D. A., 2011, A colour scheme for the display of
 astronomical intensity images. \emph{Bulletin of the Astronomical Society of
@@ -93,5 +88,9 @@ other details.
 \seealso{
 \code{\link[grDevices]{rainbow}} (for other colour palettes).
 }
-\keyword{color}
+\author{
+Dave Green
 
+Robin Evans
+}
+\keyword{color}

@@ -25,11 +25,10 @@ than writing \code{x[length(x)]}.
 last(1:10)
 
 }
-\author{
-Robin Evans
-}
 \seealso{
 \code{\link[utils]{tail}}, \code{\link[base]{rev}}.
 }
+\author{
+Robin Evans
+}
 \keyword{manip}
-

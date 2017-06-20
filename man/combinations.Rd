@@ -44,4 +44,3 @@ powerSetMat(3)
 Robin Evans
 }
 \keyword{arith}
-

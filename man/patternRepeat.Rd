@@ -65,11 +65,10 @@ patternRepeat0(c(3,1), c(2,2,2), keep.order=TRUE)
 patternRepeat(letters[1:4], c(1,3), c(2,2,2))
 
 }
-\author{
-Robin Evans
-}
 \seealso{
 \code{\link{rep}}
 }
+\author{
+Robin Evans
+}
 \keyword{array}
-

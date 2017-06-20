@@ -34,11 +34,10 @@ powerSet(letters[3:5], rev=TRUE)
 powerSet(1:5, m=2)
 
 }
-\author{
-Robin Evans
-}
 \seealso{
 \code{\link{powerSetMat}}.
 }
+\author{
+Robin Evans
+}
 \keyword{arith}
-

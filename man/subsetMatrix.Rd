@@ -35,11 +35,10 @@ The inverse of the output matrix is just \code{abs(subsetMatrix(n))}.
 subsetMatrix(3)
 
 }
+\seealso{
+\code{\link{combinations}}, \code{\link{powerSet}},  \code{\link{designMatrix}}.
+}
 \author{
 Robin Evans
 }
-\seealso{
-\code{\link{combinations}}, \code{\link{powerSet}}.
-}
 \keyword{arith}
-

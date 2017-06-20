@@ -2,9 +2,9 @@
 % Please edit documentation in R/setmatch.R
 \name{setmatch}
 \alias{setmatch}
+\alias{subsetmatch}
 \alias{setsetdiff}
 \alias{setsetequal}
-\alias{subsetmatch}
 \title{Set Operations}
 \usage{
 setmatch(x, y, nomatch = NA_integer_)
@@ -58,11 +58,10 @@ y = list(2:1, c(2,1,3))
 setsetequal(x, y)
 
 }
-\author{
-Robin Evans
-}
 \seealso{
 \code{\link{match}}, \code{\link{setequal}}, \code{\link{setdiff}}
 }
+\author{
+Robin Evans
+}
 \keyword{arith}
-

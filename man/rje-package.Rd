@@ -2,8 +2,8 @@
 % Please edit documentation in R/rje.R
 \docType{package}
 \name{rje-package}
-\alias{rje}
 \alias{rje-package}
+\alias{rje}
 \title{Miscellaneous useful functions}
 \description{
 A series of useful functions, some available in different forms in other
@@ -31,4 +31,3 @@ Maintainer: Robin Evans <evans@stats.ox.ac.uk>
 \keyword{array}
 \keyword{optimize}
 \keyword{package}
-

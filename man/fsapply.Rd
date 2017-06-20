@@ -32,6 +32,7 @@ code.
 only by used if you're confident about how \code{FUN} is applied to each
 entry in \code{x}.
 }
+
 \examples{
 
 x = list(1:1000)
@@ -51,4 +52,3 @@ system.time(for (i in 1:100) fsapply(x, function(x) last(x)))
 Robin Evans
 }
 \keyword{list}
-

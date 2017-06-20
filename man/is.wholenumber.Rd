@@ -29,4 +29,3 @@ is.wholenumber(x)
 Robin Evans
 }
 \keyword{arith}
-

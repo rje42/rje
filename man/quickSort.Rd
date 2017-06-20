@@ -41,6 +41,7 @@ ordering.
 \code{f} is not checked to see that it returns a legitimate partial order,
 so results may be meaningless if it is not.
 }
+
 \examples{
 
 set.seed(1)
@@ -50,15 +51,14 @@ quickSort(powerSet(1:3), f=subsetOrder)
 # to a legitimate total ordering.
 
 }
-\author{
-Robin Evans
-}
 \references{
 \url{http://en.wikipedia.org/wiki/Quicksort}.
 }
 \seealso{
 \code{\link[base]{order}}.
 }
+\author{
+Robin Evans
+}
 \keyword{arith}
 \keyword{optimize}
-

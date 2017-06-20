@@ -27,11 +27,10 @@ subsetOrder(2:4, 1:4)
 subsetOrder(2:4, 3:5)
 
 }
-\author{
-Robin Evans
-}
 \seealso{
 \code{\link{is.subset}}.
 }
+\author{
+Robin Evans
+}
 \keyword{arith}
-

@@ -46,11 +46,10 @@ inds = inds[inds > 0 & inds <= 144]
 arrayInd(inds, c(3,4,3,4))
 
 }
+\seealso{
+\code{\link[base]{arrayInd}}.
+}
 \author{
 Robin Evans
 }
-\seealso{
-\code{\link[rje]{arrayInd}}.
-}
 \keyword{array}
-

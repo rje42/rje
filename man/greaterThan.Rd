@@ -31,11 +31,10 @@ quickSort(c(5,2,9,7,6), f=greaterThan)
 order(c(5,2,9,7,6))
 
 }
-\author{
-Robin Evans
-}
 \seealso{
 \code{`<`} for traditional Boolean operator.
 }
+\author{
+Robin Evans
+}
 \keyword{arith}
-

@@ -23,11 +23,10 @@ The output matrix has orthogonal columns and is symmetric, so (up to a constant)
 designMatrix(3)
 
 }
-\author{
-Robin Evans
-}
 \seealso{
 \code{\link{combinations}}, \code{\link{subsetMatrix}}.
 }
+\author{
+Robin Evans
+}
 \keyword{arith}
-

@@ -67,10 +67,9 @@ example below).
 }
 \examples{
 
-
 # minimisation of simple function of three variables
-x = c(0,-2,4)
-f = function(x) ((x[1]-3)^2 + x[2]*sin(x[2]) + exp(x[3]) - x[3])
+x = c(0,-1,4)
+f = function(x) ((x[1]-3)^2 + sin(x[2])^2 + exp(x[3]) - x[3])
 
 tol = .Machine$double.eps
 mv = 1
@@ -82,17 +81,16 @@ while (mv > tol) {
   mv = sum(out$move^2)
 }
 
-# correct solution is c(3,0,0)
+# correct solution is c(3,0,0) (or c(3,k*pi,0) for any integer k)
 x
 
 
-}
-\author{
-Robin Evans
 }
 \references{
 Bertsekas, D.P. \emph{Nonlinear programming}, 2nd Edition.
 Athena, 1999.
 }
+\author{
+Robin Evans
+}
 \keyword{optimize}
-

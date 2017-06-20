@@ -62,11 +62,10 @@ ddirichlet(x, c(1,2,3))
 ddirichlet(x[,c(1,2)], c(1,2,3))
 
 }
-\author{
-Robin Evans
-}
 \references{
 \url{http://en.wikipedia.org/wiki/Dirichlet_distribution}
 }
+\author{
+Robin Evans
+}
 \keyword{distribution}
-

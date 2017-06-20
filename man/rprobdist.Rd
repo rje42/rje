@@ -34,6 +34,7 @@ distribution whose parameter vector has entries equal to
 Uses as many gamma random variables as cells
 in the table, so will alter the random seed accordingly.
 }
+
 \examples{
 rprobdist(2, 4)     # 2x2x2x2 table
 rprobdist(c(2,3,2)) # 2x3x2 table
@@ -48,4 +49,3 @@ conditioned upon
 Robin Evans
 }
 \keyword{distribution}
-

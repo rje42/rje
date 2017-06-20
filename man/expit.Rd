@@ -29,6 +29,7 @@ for \code{expit}.
 apply to \code{expit} may result in inaccurate inversion (see example
 below).
 }
+
 \examples{
 
 x = c(5, -2, 0.1)
@@ -43,4 +44,3 @@ logit(expit(100))
 Robin Evans
 }
 \keyword{arith}
-

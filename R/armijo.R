@@ -18,6 +18,7 @@
 #' Each of these rules should be applied repeatedly to achieve convergence (see
 #' example below).
 #' 
+#' 
 #' @aliases armijo coarseLine
 #' @param fun a function whose first argument is a numeric vector
 #' @param x a starting value to be passed to \code{fun}
@@ -49,10 +50,9 @@
 #' @keywords optimize
 #' @examples
 #' 
-#' 
 #' # minimisation of simple function of three variables
-#' x = c(0,-2,4)
-#' f = function(x) ((x[1]-3)^2 + x[2]*sin(x[2]) + exp(x[3]) - x[3])
+#' x = c(0,-1,4)
+#' f = function(x) ((x[1]-3)^2 + sin(x[2])^2 + exp(x[3]) - x[3])
 #' 
 #' tol = .Machine$double.eps
 #' mv = 1
@@ -64,7 +64,7 @@
 #'   mv = sum(out$move^2)
 #' }
 #' 
-#' # correct solution is c(3,0,0)
+#' # correct solution is c(3,0,0) (or c(3,k*pi,0) for any integer k)
 #' x
 #' 
 #' 
@@ -141,6 +141,8 @@ function (fun, x, dx, beta = 3, sigma = 0.5, grad, maximise = FALSE,
         best = sign * try, code = 1))
 }
 
+#' Coarse Line Search is generally faster and dirtier.
+#' 
 #' @describeIn armijo
 #' @export coarseLine
 coarseLine <-
@@ -197,3 +199,53 @@ coarseLine <-
                 best = sign * best, code = 1))
   }
 
+
+#' Coordinate Descent
+#' 
+#' Generic function for performing coordinate descent
+#' 
+#' @param fun function to be minimised (or maximised)
+#' @param x starting parameters
+#' @param maximize logical indicating max or min
+#' @param help further arguments to \code{fun}
+#' @param moveFun function for one dimensional move
+#' @param movePars parameters to pass to moveFun
+#' 
+#' \code{coordDescent} is a coordinate descent algorothm that repeately applies
+#' a one-dimensional optimization.  This will converge to the local 
+#' optimum if the function is the sum of a convex and
+#' differentiable function and a separable convex penalty (and the one-dimensional
+#' optimization is consistent).  The 1-D optimization function must have
+#' arguments \code{fun} and \code{x}, and parameters are passed via
+#' \code{movePars}.  The default is \code{coarseLine}.
+#' 
+#' @export coordDescent
+#' 
+coordDescent <- 
+  function (fun, x, maximise = FALSE, ..., moveFun=coarseLine, movePars=list()) 
+  {
+    sgn = 1 - 2 * maximise
+    eps <- 1e-8
+    p <- length(x)
+
+    orig <- list(x=x, val=fun(x, ...))
+    last_it <- x
+    continue <- TRUE
+        
+    while(continue) {
+      for (i in 1:p) {
+        ei <- rep(0,p); ei[i] = 1
+        
+        fun_i <- function(delta) fun(x+delta*ei, ...)
+        movePars2 <- c(list(fun=fun_i, x=0, maximise=maximise), movePars)
+        
+        tmp <- do.call(moveFun, movePars2)
+        x <- x + ei*tmp$x
+      }
+      
+      if (max(abs(last_it - x)) < 1e-8) continue <- FALSE
+      last_it <- x
+    }
+    
+    return(list(x = x, move = x-orig$x, code = 1))
+  }
