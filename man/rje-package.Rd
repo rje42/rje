@@ -14,8 +14,8 @@ some way considered useful to the author.
 \tabular{ll}{
 Package: \tab rje\cr
 Type: \tab Package\cr
-Version: \tab 1.10.3\cr
-Date: \tab 2015-08-07\cr
+Version: \tab 1.10.7\cr
+Date: \tab 2017-08-14\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }

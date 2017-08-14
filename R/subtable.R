@@ -55,3 +55,41 @@ function (x, variables, levels, drop = TRUE)
     if (length(dims) > 0) dim(out) = dims
     return(out)
 }
+
+#' @describeIn subtable Flexible subsetting
+#' @export subarray
+subarray <-
+  function (x, levels, drop = TRUE) 
+  {
+    if (length(levels) != length(dim(x))) {
+      stop("Array and indexlist are not compatible!")
+    }
+    args <- c(quote(x), levels, list(drop = drop))
+    return(do.call("[", args))
+  }
+
+#' @describeIn subtable Assignment in a table
+#' @export subtable<-
+`subtable<-` <-
+  function (x, variables, levels, value) 
+  {
+    indexlist <- lapply(dim(x), seq_len)
+    indexlist[variables] <- levels
+    dims = dim(x)
+    dims[variables] = sapply(levels, length)
+    out = x
+    subarray(out, indexlist) <- value
+    return(out)
+  }
+
+#' @describeIn subtable Assignment in an array
+#' @export subarray<-
+`subarray<-` <-
+  function (x, levels, value) 
+  {
+    if (length(levels) != length(dim(x))) {
+      stop("Array and indexlist are not compatible!")
+    }
+    args <- c(quote(x), levels, quote(value))
+    return(do.call("[<-", args))
+  }

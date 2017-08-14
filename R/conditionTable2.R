@@ -1,3 +1,4 @@
+#' @describeIn conditionTable Conditioning whilst preserving all dimensions
 #' @export conditionTable2
 conditionTable2 <-
 function (x, variables, condition, undef=NaN) 

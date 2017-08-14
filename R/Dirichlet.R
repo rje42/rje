@@ -51,7 +51,8 @@
 ##' ddirichlet(x[,c(1,2)], c(1,2,3))
 ##' 
 ##' @name Dirichlet
-
+##' @importFrom stats rgamma
+ 
 ##' @export ddirichlet
 ddirichlet <-
 function(x, alpha, log = FALSE, tol=1e-10) {

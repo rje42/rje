@@ -5,9 +5,18 @@
 \alias{subarray}
 \alias{subarray<-}
 \alias{subtable<-}
+\alias{subarray}
+\alias{subtable<-}
+\alias{subarray<-}
 \title{Subset an array}
 \usage{
 subtable(x, variables, levels, drop = TRUE)
+
+subarray(x, levels, drop = TRUE)
+
+subtable(x, variables, levels) <- value
+
+subarray(x, levels) <- value
 }
 \arguments{
 \item{x}{An array.}
@@ -42,6 +51,15 @@ so for a \eqn{2 \times 2 \times 2}{2 x 2 x 2} array \code{x},
 Thus, for example \code{subtable(x, c(2,3), list(1, 1:2))} is
 \code{x[,1,1:2]}.
 }
+\section{Functions}{
+\itemize{
+\item \code{subarray}: Flexible subsetting
+
+\item \code{subtable<-}: Assignment in a table
+
+\item \code{subarray<-}: Assignment in an array
+}}
+
 \examples{
 
 x = array(1:8, rep(2,3))

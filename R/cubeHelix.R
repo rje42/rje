@@ -70,6 +70,7 @@
 #' legend(-0.6,4,legend=c("4. cube helix", "3. heat", "2. rainbow", "1. terrain"), box.lwd=0)
 #' }
 #' 
+#' @importFrom grDevices rgb
 #' 
 #' @export cubeHelix
 cubeHelix <-

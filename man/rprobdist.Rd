@@ -41,8 +41,8 @@ rprobdist(c(2,3,2)) # 2x3x2 table
 
 rprobdist(2, 4, alpha=1/16)     # using unit information prior
 
-rprobdist(2, 4, cond=c(2,4), alpha=1/16) # get variables 2 and 4
-conditioned upon
+# get variables 2 and 4 conditioned upon
+rprobdist(2, 4, cond=c(2,4), alpha=1/16) 
 
 }
 \author{

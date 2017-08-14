@@ -24,8 +24,8 @@
 ##'
 ##' rprobdist(2, 4, alpha=1/16)     # using unit information prior
 ##' 
-##' rprobdist(2, 4, cond=c(2,4), alpha=1/16) # get variables 2 and 4
-##' conditioned upon
+##' # get variables 2 and 4 conditioned upon
+##' rprobdist(2, 4, cond=c(2,4), alpha=1/16) 
 ##'
 ##' @section Side Effects:
 ##' Uses as many gamma random variables as cells

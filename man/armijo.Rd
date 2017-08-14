@@ -3,10 +3,13 @@
 \name{armijo}
 \alias{armijo}
 \alias{coarseLine}
+\alias{coarseLine}
 \title{Generic functions to aid finding local minima given search direction}
 \usage{
 armijo(fun, x, dx, beta = 3, sigma = 0.5, grad, maximise = FALSE,
   searchup = TRUE, adj.start = 1, ...)
+
+coarseLine(fun, x, dx, beta = 3, maximise = FALSE, ...)
 }
 \arguments{
 \item{fun}{a function whose first argument is a numeric vector}
@@ -54,7 +57,8 @@ should (hopefully) lead to a local minimum.
 \details{
 \code{coarseLine} performs a stepwise search and tries to find the integer
 \eqn{k} minimising \eqn{f(x_k)} where \deqn{x_k = x + \beta^k dx.} Note
-\eqn{k} may be negative.
+\eqn{k} may be negative.  This is genearlly quicker and dirtier
+than the Armijo rule.
 
 \code{armijo} implements an Armijo rule for moving, which is to say that
 \deqn{f(x_k) - f(x) < - \sigma \beta^k dx \cdot \nabla_x f.}{f(x_k) - f(x) <
@@ -65,6 +69,11 @@ theory underlying the Armijo rule.
 Each of these rules should be applied repeatedly to achieve convergence (see
 example below).
 }
+\section{Functions}{
+\itemize{
+\item \code{coarseLine}: Coarse line search
+}}
+
 \examples{
 
 # minimisation of simple function of three variables

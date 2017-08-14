@@ -1,3 +1,4 @@
+#' @describeIn interventionTable Interventions in matrix of distributions
 #' @export interventionMatrix
 interventionMatrix <-
 function (x, variables, condition, dim = NULL, incols = FALSE) 

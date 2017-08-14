@@ -35,8 +35,6 @@
 #' @param x A numeric array.
 #' @param variables An integer vector containing the margins of interest from
 #' \code{x}.
-#' @param margin An integer vector containing the margins of interest from
-#' \code{x}.
 #' @param condition An integer vector containing the dimensions of \code{x} to
 #' condition on.
 #' @param condition.value An integer vector or list of the same length as

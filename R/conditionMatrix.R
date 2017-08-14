@@ -1,4 +1,4 @@
-#' @describeIn conditionTable
+#' @describeIn conditionTable Conditioning in matrix of distributions
 #' @export conditionMatrix
 conditionMatrix <-
 function (x, variables, condition = NULL, condition.value = NULL, 
