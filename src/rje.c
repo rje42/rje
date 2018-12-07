@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <math.h>
 
-void indexBox (int *upp, int *lwr, int *dim, int *len, int *out) {
+void indexBox_c (int *upp, int *lwr, int *dim, int *len, int *out) {
   int i, j, k;
   int prod = 1;
   int totlen = 1;
@@ -59,7 +59,7 @@ void doone (double *x, int *dim, int k, int rmv) {
   int    *nrmv - length of rmv
  
  */
-void marginTable (double *x, int *dim, int *k, int *rmv, int *nrmv) {
+void marginTable_c (double *x, int *dim, int *k, int *rmv, int *nrmv) {
   for (int i=0; i < nrmv[0]; i++) {
     if (dim[rmv[i]-1] > 1) doone(x, dim, k[0], rmv[i]);
 
@@ -165,7 +165,7 @@ void permIndex (int *perm, int *dim, int *ndim, int *out) {
                    entries in dim.  First index
  */
 
-void patternRepeat (int *perm, int *permlen, int *dim, int *ndim, int *out) {
+void patternRepeat_c (int *perm, int *permlen, int *dim, int *ndim, int *out) {
 
   int startlen = 1;
   int reorder = 0;
@@ -249,3 +249,44 @@ void patternRepeat (int *perm, int *permlen, int *dim, int *ndim, int *out) {
     cp *= dim[i];
   }
 }
+
+/* Fast Hadamard transform
+ 
+ double *x    - vector to be transformed
+int    *k    - number of dimensions (log2 length of x)
+
+*/
+void hadamard_c (double *x, int *k) {
+  int p1,p2;
+  double tmp;
+  for (int i=0; i < k[0]; i++) {
+    int pos = 0;
+
+    for (int ind2=0; ind2 < pow(2,k[0]-i-1); ind2++) {
+      for (int ind1=0; ind1 < pow(2,i); ind1++) {
+        p1 = ind1 + ind2*pow(2,i+1);
+        p2 = p1 + pow(2,i);
+        
+/*        Rprintf("%i: %i %i %i %i\n", i, ind1, ind2, p1, p2); */
+        
+        if (p1 >= pow(2,k[0])) 
+        {
+          printf("error p1\n");
+          return;
+        }
+        if (p2 >= pow(2,k[0]))         
+          {
+          printf("error p2\n");
+          return;
+        }
+
+        tmp = x[p1] - x[p2];
+        x[p1] += x[p2];
+        x[p2] = tmp;
+        pos += 1;
+      }
+      pos += pow(2,i+1);
+    }
+  }
+}
+

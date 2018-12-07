@@ -26,5 +26,5 @@
 #' @name rje
 #' @keywords package array arith optimize
 #' 
-#' @useDynLib rje
+#' @useDynLib rje, .registration = TRUE
 NULL

@@ -12,7 +12,7 @@ rdirichlet(n, alpha)
 \arguments{
 \item{x}{vector (or matrix) of points in sample space.}
 
-\item{alpha}{vector of Dirichlet hyper parameter.}
+\item{alpha}{vector of Dirichlet hyper parameters.}
 
 \item{log}{logical; if TRUE, natural logarithm of density is returned.}
 
@@ -60,6 +60,7 @@ x
 ddirichlet(x, c(1,2,3))
 # Last column to be inferred.
 ddirichlet(x[,c(1,2)], c(1,2,3))
+ddirichlet(x, matrix(c(1,2,3), 10, 3, byrow=TRUE))
 
 }
 \references{

@@ -47,7 +47,7 @@ function (upp, lwr, dim)
         upp = rep(upp, length.out = ld)
     if (length(lwr) != ld) 
         lwr = rep(lwr, length.out = ld)
-    out = .C("indexBox", as.integer(upp), as.integer(lwr), as.integer(dim), 
+    out = .C("indexBox_c", as.integer(upp), as.integer(lwr), as.integer(dim), 
         ld, integer(prod(upp - lwr + 1)), PACKAGE = "rje")
     return(out[[5]])
 }

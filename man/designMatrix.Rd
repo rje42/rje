@@ -17,6 +17,7 @@ Produces a matrix whose rows correspond to an orthogonal binary design matrix.
 }
 \note{
 The output matrix has orthogonal columns and is symmetric, so (up to a constant) is its own inverse.
+Operations with this matrix can be performed more efficiently using the fast Hadamard transform.
 }
 \examples{
 

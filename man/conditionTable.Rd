@@ -7,8 +7,6 @@
 \alias{conditionTable2}
 \alias{condition.table}
 \alias{condition.table2}
-\alias{conditionMatrix}
-\alias{conditionTable2}
 \title{Find conditional probability table}
 \usage{
 conditionMatrix(x, variables, condition = NULL, condition.value = NULL,

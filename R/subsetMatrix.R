@@ -43,6 +43,7 @@ function (n)
 #' @param n integer containing the number of elements in the set.
 #' @return An integer matrix of dimension 2^n by 2^n containing 1 and -1.
 #' @note The output matrix has orthogonal columns and is symmetric, so (up to a constant) is its own inverse.
+#' Operations with this matrix can be performed more efficiently using the fast Hadamard transform. 
 #' @author Robin Evans
 #' @seealso \code{\link{combinations}}, \code{\link{subsetMatrix}}.
 #' @keywords arith
@@ -61,3 +62,39 @@ designMatrix <-
     }
     out
   }
+
+#' Compute fast Hadamard-transform of vector
+#' 
+#' Passes vector through Hadamard orthogonal design matrix.  Also known
+#' as the Fast Walsh-Hadamard transform.
+#' 
+#' @param x vector of values to be transformed
+#' @param pad optional logical asking whether vector not of length \eqn{2^k} should be
+#' padded with zeroes
+#' @details This is equivalent to multiplying by \code{designMatrix(log2(length(x)))} 
+#' but should run much faster
+#' @return A vector of the same length as x
+#' @author Robin Evans
+#' @seealso \code{\link{designMatrix}}, \code{\link{subsetMatrix}}.
+#' @keywords arith
+#' @examples
+#' 
+#' fastHadamard(1:8)
+#' fastHadamard(1:5, pad=TRUE)
+#' 
+#' @export fastHadamard
+fastHadamard <- function(x, pad=FALSE) {
+  len <- length(x)
+  k <- ceiling(log2(len))
+  if (k != log2(len)) {
+    if (!pad) stop("If 'pad=FALSE' then length must be a power of 2")
+    else {
+      x <- c(x, rep(0,2^k - len))
+    }
+  }
+  
+  out <- .C("hadamard_c", as.double(x), as.integer(k), PACKAGE = "rje")[[1]]
+  
+  out
+}
+

@@ -26,7 +26,7 @@
 ##' rdirichlet(n, alpha) 
 ##' 
 ##' @param n number of random variables to be generated.
-##' @param alpha vector of Dirichlet hyper parameter.
+##' @param alpha vector of Dirichlet hyper parameters.
 ##' @param x vector (or matrix) of points in sample space.
 ##' @param log logical; if TRUE, natural logarithm of density is returned.
 ##' @param tol tolerance of vectors not summing to 1 and negative values.
@@ -49,6 +49,7 @@
 ##' ddirichlet(x, c(1,2,3))
 ##' # Last column to be inferred.
 ##' ddirichlet(x[,c(1,2)], c(1,2,3))
+##' ddirichlet(x, matrix(c(1,2,3), 10, 3, byrow=TRUE))
 ##' 
 ##' @name Dirichlet
 ##' @importFrom stats rgamma
@@ -56,7 +57,8 @@
 ##' @export ddirichlet
 ddirichlet <-
 function(x, alpha, log = FALSE, tol=1e-10) {
-  k = length(alpha)
+  if (!is.matrix(alpha)) k = length(alpha)
+  else k = ncol(alpha)
   dimx = dim(x)
   if (is.matrix(x)) n = dimx[1]
   else if(is.numeric(x)) {
@@ -77,9 +79,16 @@ function(x, alpha, log = FALSE, tol=1e-10) {
 
   out[ rowMins(x) < -tol | abs(rwsms-1) > tol ] = 0
 
-  out = colSums((alpha-1)*log(t(x))) + lgamma(sum(alpha)) - sum(lgamma(alpha))
+  if (is.matrix(alpha)) {
+    ## different parameter values for each observation
+    out = rowSums((alpha-1)*log(x)) + lgamma(rowSums(alpha)) - rowSums(lgamma(alpha))
+  }
+  else {
+    out = colSums((alpha-1)*log(t(x))) + lgamma(sum(alpha)) - sum(lgamma(alpha))
+  }
+  
   if (!log) out = exp(out)
-
+  
   return(out)
 }
 

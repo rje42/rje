@@ -4,7 +4,6 @@
 \alias{interventionMatrix}
 \alias{interventionTable}
 \alias{intervention.table}
-\alias{interventionMatrix}
 \title{Calculate interventional distributions.}
 \usage{
 interventionMatrix(x, variables, condition, dim = NULL, incols = FALSE)

@@ -5,9 +5,6 @@
 \alias{subarray}
 \alias{subarray<-}
 \alias{subtable<-}
-\alias{subarray}
-\alias{subtable<-}
-\alias{subarray<-}
 \title{Subset an array}
 \usage{
 subtable(x, variables, levels, drop = TRUE)

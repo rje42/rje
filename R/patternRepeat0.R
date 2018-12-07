@@ -23,7 +23,7 @@ function (which, n, careful = TRUE, keep.order = FALSE)
             warning("Duplicated indices ignored")
         }
     }
-    out = .C("patternRepeat", which, length(which), as.integer(n), 
+    out = .C("patternRepeat_c", which, length(which), as.integer(n), 
         length(n), out)[[5]]
     out
 }
