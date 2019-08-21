@@ -271,12 +271,12 @@ void hadamard_c (double *x, int *k) {
         
         if (p1 >= pow(2,k[0])) 
         {
-          printf("error p1\n");
+          Rprintf("error p1\n");
           return;
         }
         if (p2 >= pow(2,k[0]))         
           {
-          printf("error p2\n");
+          Rprintf("error p2\n");
           return;
         }
 
