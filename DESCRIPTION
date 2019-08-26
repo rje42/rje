@@ -9,13 +9,14 @@ Depends:
     R (>= 2.0.0),
 License: GPL (>= 2)
 LazyLoad: yes
+Imports: 
+    knitr
 Suggests:
     testthat,
-    knitr,
     rmarkdown
 VignetteBuilder: knitr
 Packaged: 2014-08-29 14:45:55 UTC; evans
 Author: Robin Evans [aut, cre],
     Mathias Drton [ctb]
 Maintainer: Robin Evans <evans@stats.ox.ac.uk>
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
