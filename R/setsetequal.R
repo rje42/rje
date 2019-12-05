@@ -1,3 +1,4 @@
+#' @describeIn setmatch Test for equality of sets
 #' @export setsetequal
 setsetequal <-
 function (x, y) 

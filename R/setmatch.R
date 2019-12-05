@@ -9,7 +9,9 @@
 #' irrelevant, as they are considered to be sets.
 #' 
 #' \code{subsetmatch} is similar to \code{setmatch}, except vectors in \code{x}
-#' are searched to see if they are subsets of vectors in \code{y}.
+#' are searched to see if they are subsets of vectors in \code{y}.  Similarly
+#' \code{supersetmatch} consideres if vectors in \code{x} are supersets of
+#' vectors in \code{y}.
 #' 
 #' \code{setsetdiff} is a setwise version of \code{setdiff}, and
 #' \code{setsetequal} a setwise version of \code{setequal}.
@@ -46,7 +48,7 @@
 setmatch <-
 function (x, y, nomatch = NA_integer_) 
 {
-    if (!is.list(x) && !is.list(y)) 
+    if (!is.list(x) || !is.list(y)) 
         stop("Arguments must be lists")
     out = rep.int(nomatch, length(x))
     for (i in seq_along(x)) {

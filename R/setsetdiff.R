@@ -1,3 +1,4 @@
+#' @describeIn setmatch Setdiff for lists
 #' @export setsetdiff
 setsetdiff <-
 function (x, y) 
