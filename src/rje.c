@@ -171,10 +171,10 @@ void patternRepeat_c (int *perm, int *permlen, int *dim, int *ndim, int *out) {
   int reorder = 0;
   int loc = 0;
 
-  /* if necessary, first perumte the indices as given to correct order */
+  /* if necessary, first permute the indices as given to correct order */
   for (int i=0; i<permlen[0]; i++) {
     startlen *= dim[perm[i]];
-    if (perm[i+1] < perm[i] && i<permlen[0]-1) reorder = 1;
+    if (i < permlen[0]-1 && perm[i+1] < perm[i]) reorder = 1;
   }
 
   if (reorder > 0) {

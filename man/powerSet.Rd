@@ -2,9 +2,12 @@
 % Please edit documentation in R/powerSet.R
 \name{powerSet}
 \alias{powerSet}
+\alias{powerSetCond}
 \title{Power Set}
 \usage{
 powerSet(x, m, rev = FALSE)
+
+powerSetCond(x, y, m, rev = FALSE, sort = FALSE)
 }
 \arguments{
 \item{x}{vector of elements (the set).}
@@ -12,6 +15,10 @@ powerSet(x, m, rev = FALSE)
 \item{m}{maximum cardinality of subsets}
 
 \item{rev}{logical indicating whether to reverse the order of subsets.}
+
+\item{y}{set to condition on}
+
+\item{sort}{logical: should sets be sorted?}
 }
 \value{
 A list of vectors of the same type as \code{x}.
@@ -26,12 +33,22 @@ Produces the power set of a vector.
 \details{
 Creates a list containing every subset of the elements of the vector
 \code{x}.
+
+\code{powerSet} returns subsets up to size \code{m} (if this is specified).  
+\code{powerSetCond} includes some non-empty subset of \code{y} in every set.
 }
+\section{Functions}{
+\itemize{
+\item \code{powerSetCond}: Add sets that can't be empty
+}}
+
 \examples{
 
 powerSet(1:3)
 powerSet(letters[3:5], rev=TRUE)
 powerSet(1:5, m=2)
+
+powerSetCond(2:3, y=1)
 
 }
 \seealso{
