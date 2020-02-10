@@ -4,7 +4,7 @@
 \alias{quickSort}
 \title{Quicksort for Partial Orderings}
 \usage{
-quickSort(x, f = greaterThan, random = TRUE)
+quickSort(x, f = greaterThan, ..., random = TRUE)
 }
 \arguments{
 \item{x}{A list or vector of items to be sorted.}
@@ -12,6 +12,8 @@ quickSort(x, f = greaterThan, random = TRUE)
 \item{f}{A function on two arguments for comparing elements of \code{x}.
 Returns \code{-1} if the first argument is less than the second, \code{1}
 for the reverse, and \code{0} if they are equal or incomparable.}
+
+\item{...}{other arguments to \code{f}}
 
 \item{random}{logical - should a random pivot be chosen? (this is
 recommended) Otherwise middle element is used.}

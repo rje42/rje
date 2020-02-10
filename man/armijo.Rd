@@ -5,8 +5,18 @@
 \alias{coarseLine}
 \title{Generic functions to aid finding local minima given search direction}
 \usage{
-armijo(fun, x, dx, beta = 3, sigma = 0.5, grad, maximise = FALSE,
-  searchup = TRUE, adj.start = 1, ...)
+armijo(
+  fun,
+  x,
+  dx,
+  beta = 3,
+  sigma = 0.5,
+  grad,
+  maximise = FALSE,
+  searchup = TRUE,
+  adj.start = 1,
+  ...
+)
 
 coarseLine(fun, x, dx, beta = 3, maximise = FALSE, ...)
 }

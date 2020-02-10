@@ -174,7 +174,7 @@ void patternRepeat_c (int *perm, int *permlen, int *dim, int *ndim, int *out) {
   /* if necessary, first permute the indices as given to correct order */
   for (int i=0; i<permlen[0]; i++) {
     startlen *= dim[perm[i]];
-    if (i < permlen[0]-1 && perm[i+1] < perm[i]) reorder = 1;
+    if (reorder < 1 && i < permlen[0]-1 && perm[i+1] < perm[i]) reorder = 1;
   }
 
   if (reorder > 0) {
@@ -198,27 +198,26 @@ void patternRepeat_c (int *perm, int *permlen, int *dim, int *ndim, int *out) {
       while (inc[loc] == 0) loc++;
 
       for (int j=0; j<permlen[0]; j++) {
-	if (perm2[j] == loc) {
-	  /* copy ordered location to perm, record order as ord */
-	  perm[i] = loc;
-	  ord[i] = j;
-	  loc++;
-	  break;
-	}
+        if (perm2[j] == loc) {
+          /* copy ordered location to perm, record order as ord */
+          perm[i] = loc;
+          ord[i] = j;
+          loc++;
+          break;
+        }
       }
     }
     if (keep_order) {
       /* if given order of variables is to be respected, use permIndex
-	 to get initial vector of indices */
+       to get initial vector of indices */
       permIndex(ord, permdim, permlen, out);
     }
     else {
       /* else just initialize output as 0,1,2,...  */
       for (int i=0; i<startlen; i++) {
-	out[i] = i;
+        out[i] = i;
       }
     }
-
   }
   else {
     /* just initialize output as 0,1,2,...  */

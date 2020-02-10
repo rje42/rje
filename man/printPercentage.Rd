@@ -60,7 +60,7 @@ repeat {
   }
   printCount(i)
 }
-print("\\n")
+print("\n")
 
 }
 \author{

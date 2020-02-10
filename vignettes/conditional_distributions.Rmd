@@ -18,6 +18,7 @@ library(rje)
 First let's generate a joint probability distribution for a 
 $2 \times 2 \times 2 \times 2$-table. 
 ```{r}
+set.seed(123)
 p = rprobdist(2, 4)
 ```
 We can easily calculate the marginal distribution for the first
