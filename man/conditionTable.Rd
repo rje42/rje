@@ -9,11 +9,24 @@
 \alias{condition.table2}
 \title{Find conditional probability table}
 \usage{
-conditionMatrix(x, variables, condition = NULL, condition.value = NULL,
-  dim = NULL, incols = FALSE, undef = NaN)
+conditionMatrix(
+  x,
+  variables,
+  condition = NULL,
+  condition.value = NULL,
+  dim = NULL,
+  incols = FALSE,
+  undef = NaN
+)
 
-conditionTable(x, variables, condition = NULL, condition.value = NULL,
-  undef = NaN, order = TRUE)
+conditionTable(
+  x,
+  variables,
+  condition = NULL,
+  condition.value = NULL,
+  undef = NaN,
+  order = TRUE
+)
 
 conditionTable2(x, variables, condition, undef = NaN)
 }
