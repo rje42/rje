@@ -70,19 +70,19 @@ function (x, f = greaterThan, ..., random = TRUE)
   for (i in seq_len(n)[-mid]) {
     if (length(otherArgs) >= 1) args <- c(list(x=x[[i]], y=x[[mid]]), otherArgs)
     else args <- list(x=x[[i]], y=x[[mid]])
-    
+
     # comp[i] = f(x[[i]], x[[mid]])
     comp[i] = do.call(f, args)
   }
   lu = Recall(x[comp == 1], f, ..., random)
   ld = Recall(x[comp == -1], f, ..., random)
   lm = Recall(x[comp == 0], f, ..., random)
-  
+
   rank = numeric(n)
   rank[comp == -1] = ld
   rank[mid] = max(c(0, ld)) + 1
   rank[comp == 0] = lm + max(c(0, ld))
   rank[comp == 1] = lu + max(c(0, rank), na.rm = TRUE)
-  
+
   return(rank)
 }
