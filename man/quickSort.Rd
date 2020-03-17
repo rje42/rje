@@ -32,7 +32,7 @@ for items which are incomparable (or equal).  Does not test the validity of
 \code{f} as a partial order.
 
 If \code{x} is a numeric vector with distinct entries, this behaves just
-like \code{\link[base]{order}}.
+like \code{\link[base]{rank}}.
 }
 \section{Warning}{
  Output may not be consistent for certain partial orderings

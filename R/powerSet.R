@@ -1,22 +1,23 @@
 #' Power Set
 #' 
-#' Produces the power set of a vector.
+#' Produces the power set of a vector.  
 #' 
-#' Creates a list containing every subset of the elements of the vector
-#' \code{x}.
+#' Creates a list containing every subset 
+#' of the elements of the vector \code{x}.
 #' 
 #' @param x vector of elements (the set).
 #' @param m maximum cardinality of subsets
 #' @param rev logical indicating whether to reverse the order of subsets.
 #' 
 #' @details \code{powerSet} returns subsets up to size \code{m} (if this is specified).  
-#' \code{powerSetCond} includes some non-empty subset of \code{y} in every set.
+#' \code{powerSetCond} includes some non-empty subset of \code{x} in every set.
 #' 
 #' @return A list of vectors of the same type as \code{x}.
 #' 
-#' With \code{rev = FALSE} (the defualt) the list is ordered such that all
+#' With \code{rev = FALSE} (the default) the list is ordered such that all
 #' subsets containing the last element of \code{x} come after those which do
 #' not, and so on.
+#' 
 #' @author Robin Evans
 #' @seealso \code{\link{powerSetMat}}.
 #' @keywords arith
@@ -53,16 +54,15 @@ function (x, m, rev = FALSE)
 powerSetCond <-
 function (x, y, m, rev = FALSE, sort=FALSE)
 {
-  if (missing(y) || length(y) == 0) return(powerSet(x, m, rev))
-
   if (missing(x)) x <- integer(0)
-  
+  if (missing(y) || length(y) == 0) return(powerSet(x, m, rev)[-1])
+
   x <- setdiff(x,y)
   
   out <- list()
 
-  out_y <- powerSet(y, m, rev)[-1]
-  out_x <- powerSet(x, m, rev)
+  out_y <- powerSet(y, m, rev)
+  out_x <- powerSet(x, m, rev)[-1]
 
   for (i in seq_along(out_y)) {
     for (j in seq_along(out_x)) {

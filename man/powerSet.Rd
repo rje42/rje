@@ -23,7 +23,7 @@ powerSetCond(x, y, m, rev = FALSE, sort = FALSE)
 \value{
 A list of vectors of the same type as \code{x}.
 
-With \code{rev = FALSE} (the defualt) the list is ordered such that all
+With \code{rev = FALSE} (the default) the list is ordered such that all
 subsets containing the last element of \code{x} come after those which do
 not, and so on.
 }
@@ -31,11 +31,11 @@ not, and so on.
 Produces the power set of a vector.
 }
 \details{
-Creates a list containing every subset of the elements of the vector
-\code{x}.
+Creates a list containing every subset 
+of the elements of the vector \code{x}.
 
 \code{powerSet} returns subsets up to size \code{m} (if this is specified).  
-\code{powerSetCond} includes some non-empty subset of \code{y} in every set.
+\code{powerSetCond} includes some non-empty subset of \code{x} in every set.
 }
 \section{Functions}{
 \itemize{
