@@ -61,8 +61,8 @@ function (x, y, m, rev = FALSE, sort=FALSE)
   
   out <- list()
 
-  out_y <- powerSet(y, m, rev)[-1]
-  out_x <- powerSet(x, m, rev)
+  out_y <- powerSet(y, m, rev)
+  out_x <- powerSet(x, m, rev)[-1]
 
   for (i in seq_along(out_y)) {
     for (j in seq_along(out_x)) {
