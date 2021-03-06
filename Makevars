@@ -1,0 +1,2 @@
+CC=/usr/local/Cellar/gcc/9.2.0_3/bin/x86_64-apple-darwin18-gcc-9
+CXX=/usr/local/Cellar/gcc/9.2.0_3/bin/x86_64-apple-darwin18-g++-9

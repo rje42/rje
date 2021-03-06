@@ -6,6 +6,8 @@
 \title{Complex repetitions}
 \usage{
 patternRepeat(x, which, n, careful = TRUE, keep.order = FALSE)
+
+patternRepeat0(which, n, careful = TRUE, keep.order = FALSE)
 }
 \arguments{
 \item{x}{A vector to be repeated.}
@@ -51,6 +53,11 @@ So \code{patternRepeat(x,which,n)} is effectively equivalent to
 
 The length of \code{x} must be equal to \code{prod(n[which])}.
 }
+\section{Functions}{
+\itemize{
+\item \code{patternRepeat0}: Stripped down version that just gives indices
+}}
+
 \examples{
 
 patternRepeat(1:4, c(1,2), c(2,2,2))

@@ -71,6 +71,7 @@ function (x, which, n, careful = TRUE, keep.order = FALSE)
     return(x[idx])
 }
 
+#' @describeIn patternRepeat Stripped down version that just gives indices
 #' @export patternRepeat0
 patternRepeat0 <-
   function (which, n, careful = TRUE, keep.order = FALSE) 

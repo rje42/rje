@@ -98,3 +98,35 @@ fastHadamard <- function(x, pad=FALSE) {
   out
 }
 
+##' Kronecker power of a matrix or vector
+##' 
+##' @param x matrix or vector
+##' @param n integer containing power to take
+##' 
+##' @details This computes \code{x \%x\% ... \%x\% x} 
+##' for \code{n} 
+##' instances of \code{x}. 
+##' 
+##' @export
+kronPower <- function(x, n) {
+  
+  if (n < 0) stop("n must be a non-negative integer")
+ 
+  ## deal with n=0,1 cases 
+  if (n == 0) {
+    if (is.matrix(x)) return(matrix(1, 1, 1))
+    else return(1)
+  }
+  else if (n == 1) return(x)
+  
+  out <- x
+  
+  ## now try larger cases
+  while (n > 1) {
+  
+    out <- .kronecker(out, x)
+    n <- n - 1
+  }
+  
+  return(out)
+}
