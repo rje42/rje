@@ -14,6 +14,11 @@
 #' @docType package
 #' @author Robin Evans
 #' 
+#' @description A series of functions in some way considered useful to the author.  
+#' These include functions for subsetting tables and generating indices for 
+#' arrays, conditioning and intervening in probability distributions, 
+#' generating combinations and more...
+#' 
 #' Mathias Drton
 #' 
 #' Maintainer: Robin Evans <evans@@stats.ox.ac.uk>

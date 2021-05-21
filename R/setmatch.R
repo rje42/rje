@@ -61,3 +61,62 @@ function (x, y, nomatch = NA_integer_)
     }
     out
 }
+
+#' @describeIn setmatch Test for equality of sets
+#' @export setsetequal
+setsetequal <-
+    function (x, y) 
+    {
+        if (!is.list(x) && !is.list(y)) 
+            stop("Arguments must be lists")
+        all(c(setmatch(x, y, 0L) > 0L, setmatch(y, x, 0L) > 0L))
+    }
+
+#' @describeIn setmatch Setdiff for lists
+#' @export setsetdiff
+setsetdiff <-
+    function (x, y) 
+    {
+        if (!is.list(x) && !is.list(y)) 
+            stop("Arguments must be lists")
+        x[match(x, y, 0L) == 0L]
+    }
+
+#' @describeIn setmatch Test for subsets
+#' @export subsetmatch
+subsetmatch <-
+    function (x, y, nomatch = NA_integer_) 
+    {
+        if (!is.list(x) || !is.list(y)) 
+            stop("Arguments must be lists")
+        out = rep.int(nomatch, length(x))
+        for (i in seq_along(x)) {
+            for (j in seq_along(y)) {
+                if (x[[i]] %subof% y[[j]]) {
+                    out[i] = j
+                    break
+                }
+            }
+        }
+        out
+    }
+
+#' @describeIn setmatch Test for supersets
+#' @export 
+supersetmatch <-
+    function (x, y, nomatch = NA_integer_) 
+    {
+        if (!is.list(x) || !is.list(y)) 
+            stop("Arguments must be lists")
+        out = rep.int(nomatch, length(x))
+        for (i in seq_along(x)) {
+            for (j in seq_along(y)) {
+                if (y[[j]] %subof% x[[i]]) {
+                    out[i] = j
+                    break
+                }
+            }
+        }
+        out
+    }
+

@@ -6,9 +6,14 @@
 \alias{rje-package}
 \title{Miscellaneous useful functions}
 \description{
-A series of useful functions, some available in different forms in other
-packages, but which have been extended, sped up, or otherwise modified in
-some way considered useful to the author.
+A series of functions in some way considered useful to the author.  
+These include functions for subsetting tables and generating indices for 
+arrays, conditioning and intervening in probability distributions, 
+generating combinations and more...
+
+Mathias Drton
+
+Maintainer: Robin Evans <evans@stats.ox.ac.uk>
 }
 \details{
 \tabular{ll}{
@@ -21,10 +26,6 @@ LazyLoad: \tab yes\cr
 }
 \author{
 Robin Evans
-
-Mathias Drton
-
-Maintainer: Robin Evans <evans@stats.ox.ac.uk>
 }
 \keyword{arith}
 \keyword{array}

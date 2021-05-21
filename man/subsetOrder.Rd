@@ -28,7 +28,7 @@ subsetOrder(2:4, 3:5)
 
 }
 \seealso{
-\code{\link{is.subset}}.
+\code{\link{is.subset}}, \code{\link{inclusionMax}}.
 }
 \author{
 Robin Evans

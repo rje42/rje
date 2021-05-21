@@ -16,6 +16,8 @@
 #' 
 #' is.subset(1:2, 1:3)
 #' is.subset(1:2, 2:3)
+#' 1:2 %subof% 1:3
+#' 1:2 %subof% 2:3
 #' 
 #' @export is.subset
 is.subset <-
@@ -23,3 +25,11 @@ function (x, y)
 {
     return(all(x %in% y))
 }
+
+#' @describeIn is.subset operator version
+#' @export
+`%subof%` <-
+  function (x, y) 
+  {
+    is.subset(x, y)
+  }

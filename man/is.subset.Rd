@@ -6,6 +6,8 @@
 \title{Check subset inclusion}
 \usage{
 is.subset(x, y)
+
+x \%subof\% y
 }
 \arguments{
 \item{x}{vector.}
@@ -22,10 +24,17 @@ Determines whether one vector contains all the elements of another.
 Determines whether or not every element of \code{x} is also found in
 \code{y}. Returns \code{TRUE} if so, and \code{FALSE} if not.
 }
+\section{Functions}{
+\itemize{
+\item \code{\%subof\%}: operator version
+}}
+
 \examples{
 
 is.subset(1:2, 1:3)
 is.subset(1:2, 2:3)
+1:2 \%subof\% 1:3
+1:2 \%subof\% 2:3
 
 }
 \seealso{

@@ -25,8 +25,11 @@
 #' 
 #' # Beware large values!
 #' logit(expit(100))
-#' 
-#' @export expit
+#' @name expit_logit
+NULL
+
+#' @describeIn expit_logit expit function
+#' @export
 expit <-
 function (x) 
 {
@@ -34,3 +37,16 @@ function (x)
     out[x > 100] = 1
     out
 }
+
+#' @describeIn expit_logit logit function
+#' @export
+logit <-
+  function (x) 
+  {
+    no = (x < 0) | (x > 1)
+    out = numeric(length(x))
+    out[no] = NaN
+    out[!no] = log(x[!no]/(1 - x[!no]))
+    dim(out) = dim(x)
+    out
+  }

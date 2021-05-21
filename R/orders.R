@@ -38,7 +38,7 @@ function (x, y)
 #' @param y A vector of the same type as \code{x}.
 #' @return A single integer, 0, -1 or 1.
 #' @author Robin Evans
-#' @seealso \code{\link{is.subset}}.
+#' @seealso \code{\link{is.subset}}, \code{\link{inclusionMax}}.
 #' @keywords arith
 #' @examples
 #' 
