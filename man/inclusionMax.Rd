@@ -9,7 +9,7 @@ inclusionMax(x, right = FALSE)
 \arguments{
 \item{x}{list containing the subsets}
 
-\item{right}{logical indicating}
+\item{right}{logical indicating whether right-most entry is always inclusion maximal}
 }
 \description{
 Get inclusion maximal subsets from a list
@@ -17,7 +17,8 @@ Get inclusion maximal subsets from a list
 \details{
 Returns the inclusion maximal elements of \code{x}.  The 
 indicator \code{right} may be set to \code{TRUE} in order to indicate
-that the right-most entry is always an inclusion maximal set.
+that the right-most entry is always an inclusion maximal set over all earlier 
+sets.
 }
 \examples{
 letlist <- list(LETTERS[1:2], LETTERS[2:4], LETTERS[1:3])

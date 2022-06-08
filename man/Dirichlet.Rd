@@ -64,7 +64,7 @@ ddirichlet(x, matrix(c(1,2,3), 10, 3, byrow=TRUE))
 
 }
 \references{
-\url{http://en.wikipedia.org/wiki/Dirichlet_distribution}
+\url{https://en.wikipedia.org/wiki/Dirichlet_distribution}
 }
 \author{
 Robin Evans

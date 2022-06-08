@@ -54,7 +54,7 @@ quickSort(powerSet(1:3), f=subsetOrder)
 
 }
 \references{
-\url{http://en.wikipedia.org/wiki/Quicksort}.
+\url{https://en.wikipedia.org/wiki/Quicksort}.
 }
 \seealso{
 \code{\link[base]{order}}.

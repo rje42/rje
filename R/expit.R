@@ -25,10 +25,10 @@
 #' 
 #' # Beware large values!
 #' logit(expit(100))
-#' @name expit_logit
-NULL
-
-#' @describeIn expit_logit expit function
+# @name expit_logit
+# NULL
+# 
+# @describeIn expit_logit expit function
 #' @export
 expit <-
 function (x) 
@@ -38,7 +38,7 @@ function (x)
     out
 }
 
-#' @describeIn expit_logit logit function
+#' @describeIn expit logit function
 #' @export
 logit <-
   function (x) 

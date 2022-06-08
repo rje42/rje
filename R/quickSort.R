@@ -30,7 +30,7 @@
 #' so results may be meaningless if it is not.
 #' @author Robin Evans
 #' @seealso \code{\link[base]{order}}.
-#' @references \url{http://en.wikipedia.org/wiki/Quicksort}.
+#' @references \url{https://en.wikipedia.org/wiki/Quicksort}.
 #' @keywords arith optimize
 #' @examples
 #' 

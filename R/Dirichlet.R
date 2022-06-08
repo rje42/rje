@@ -38,7 +38,7 @@
 ##' corresponding row of \code{x}.  If \code{x} is a vector, then the output %
 ##' will have length 1.
 ##' @author Robin Evans
-##' @references \url{http://en.wikipedia.org/wiki/Dirichlet_distribution}
+##' @references \url{https://en.wikipedia.org/wiki/Dirichlet_distribution}
 ##' @keywords distribution
 ##' @examples
 ##' 

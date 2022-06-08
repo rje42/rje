@@ -1,4 +1,12 @@
-2014-?  Version 1.10
+2022-06-08  Version 1.11.0
+
+* Added various functions, including schur() and supersetmatch()
+
+* Modified and sped up various others, including conditionTable()
+
+---
+
+2014-09-20  Version 1.10
 
 * added C built function patternRepeat0() 
 

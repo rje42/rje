@@ -79,9 +79,9 @@ legend(-0.6,4,legend=c("4. cube helix", "3. heat", "2. rainbow", "1. terrain"), 
 \references{
 Green, D. A., 2011, A colour scheme for the display of
 astronomical intensity images. \emph{Bulletin of the Astronomical Society of
-India}, 39, 289.  \url{http://adsabs.harvard.edu/abs/2011BASI...39..289G}
+India}, 39, 289.  \url{https://adsabs.harvard.edu/abs/2011BASI...39..289G/abstract}
 
-See Dave Green's page at \url{http://www.mrao.cam.ac.uk/~dag/CUBEHELIX/} for
+See Dave Green's page at \url{https://www.mrao.cam.ac.uk/~dag/CUBEHELIX/} for
 other details.
 }
 \seealso{
