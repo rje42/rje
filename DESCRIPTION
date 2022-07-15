@@ -1,7 +1,7 @@
 Package: rje
 Type: Package
 Title: Miscellaneous Useful Functions for Statistics
-Version: 1.11.0
+Version: 1.11.1
 Authors@R: c(person("Robin", "Evans", email="evans@stats.ox.ac.uk",
     role=c("aut", "cre")), person("Mathias", "Drton", role=c("ctb")))
 Description: A series of functions in some way considered useful to the author.  

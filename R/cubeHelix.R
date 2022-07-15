@@ -28,7 +28,7 @@
 #' @seealso \code{\link[grDevices]{rainbow}} (for other colour palettes).
 #' @references Green, D. A., 2011, A colour scheme for the display of
 #' astronomical intensity images. \emph{Bulletin of the Astronomical Society of
-#' India}, 39, 289.  \url{https://adsabs.harvard.edu/abs/2011BASI...39..289G/abstract}
+#' India}, 39, 289.  \url{https://ui.adsabs.harvard.edu/abs/2011BASI...39..289G/abstract}
 #' 
 #' See Dave Green's page at \url{https://www.mrao.cam.ac.uk/~dag/CUBEHELIX/} for
 #' other details.
