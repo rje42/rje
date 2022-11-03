@@ -114,6 +114,7 @@ fastHadamard <- function(x, pad=FALSE) {
 fastMobius <- function(x, pad=FALSE) {
   len <- length(x)
   if (len <= 1) return(x)
+
   k <- ceiling(log2(len))
   if (k != log2(len)) {
     if (!pad) stop("If 'pad=FALSE' then length must be a power of 2")
@@ -132,6 +133,7 @@ fastMobius <- function(x, pad=FALSE) {
 invMobius <- function(x, pad=FALSE) {
   len <- length(x)
   if (len <= 1) return(x)
+
   k <- ceiling(log2(len))
   if (k != log2(len)) {
     if (!pad) stop("If 'pad=FALSE' then length must be a power of 2")
