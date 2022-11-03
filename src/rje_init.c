@@ -11,6 +11,8 @@ extern void marginTable_c(void *, void *, void *, void *, void *);
 extern void patternRepeat_c(void *, void *, void *, void *, void *);
 extern void propTable0(void *, void *);
 extern void hadamard_c(void *, void *);
+extern void mobius_c(void *, void *);
+extern void mobiusinv_c(void *, void *);
 
 static const R_CMethodDef CEntries[] = {
   {"indexBox_c",      (DL_FUNC) &indexBox_c,      5},
@@ -18,6 +20,8 @@ static const R_CMethodDef CEntries[] = {
   {"patternRepeat_c", (DL_FUNC) &patternRepeat_c, 5},
   {"propTable0",      (DL_FUNC) &propTable0,      2},
   {"hadamard_c",      (DL_FUNC) &hadamard_c,      2},
+  {"mobius_c",        (DL_FUNC) &mobius_c,        2},
+  {"mobiusinv_c",     (DL_FUNC) &mobiusinv_c,     2},
   {NULL, NULL, 0}
 };
 
