@@ -289,3 +289,90 @@ void hadamard_c (double *x, int *k) {
   }
 }
 
+
+/* Fast Moebius transform
+ 
+ double *x    - vector to be transformed
+ int    *k    - number of dimensions (log2 length of x)
+ 
+ */
+void mobiusinv_c (double *x, int *k) {
+  int p1,p2;
+  double tmp;
+  /* first loop through dimension */
+  for (int i=0; i < k[0]; i++) {
+    int pos = 0;
+    
+    for (int ind2=0; ind2 < pow(2,k[0]-i-1); ind2++) {
+      for (int ind1=0; ind1 < pow(2,i); ind1++) {
+        p1 = ind1 + ind2*pow(2,i+1);  /* To subtract */
+        p2 = p1 + pow(2,i);  /* Final position */
+        
+        /*        Rprintf("%i: %i %i %i %i\n", i, ind1, ind2, p1, p2); */
+        
+        if (p1 >= pow(2,k[0])) 
+        {
+          Rprintf("error p1\n");
+          return;
+        }
+        if (p2 >= pow(2,k[0]))         
+        {
+          Rprintf("error p2\n");
+          return;
+        }
+        
+        // tmp = x[p1] - x[p2];
+        // x[p1] += x[p2];
+        x[p2] -= x[p1];
+        pos += 1;
+      }
+      pos += pow(2,i+1);
+    }
+  }
+}
+
+void mobius_c (double *x, int *k) {
+  int p1,p2;
+  double tmp;
+  /* first loop through dimension */
+  for (int i=0; i < k[0]; i++) {
+    int pos = 0;
+    
+    for (int ind2=0; ind2 < pow(2,k[0]-i-1); ind2++) {
+      for (int ind1=0; ind1 < pow(2,i); ind1++) {
+        p1 = ind1 + ind2*pow(2,i+1);  /* To subtract */
+  p2 = p1 + pow(2,i);  /* Final position */
+  
+  /*        Rprintf("%i: %i %i %i %i\n", i, ind1, ind2, p1, p2); */
+  
+  if (p1 >= pow(2,k[0])) 
+  {
+    Rprintf("error p1\n");
+    return;
+  }
+  if (p2 >= pow(2,k[0]))         
+  {
+    Rprintf("error p2\n");
+    return;
+  }
+  
+  x[p2] += x[p1];
+  pos += 1;
+      }
+      pos += pow(2,i+1);
+    }
+  }
+}
+
+// void moebius_c (double *x, int *k) {
+//   
+//   /* go through indicies */
+//   for (int i=1; i < k[0]; i++) {
+//     
+//     for (int p1=0; i < ) {
+//       p2 = p1 + pow(2,i);
+//       tmp = x[p1];
+//       x[p2] -= x[p1];
+//     }
+//   }
+// }

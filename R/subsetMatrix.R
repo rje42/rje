@@ -98,6 +98,53 @@ fastHadamard <- function(x, pad=FALSE) {
   out
 }
 
+##' Fast Moebius and inverse Moebius transforms
+##' 
+##' Uses the fast method of Kennes and Smets (1990) to obtain Moebius and 
+##' inverse Moebius transforms.
+##' 
+##' @param x vector to transform
+##' @param pad logical, should vector not of length 2^k be padded with zeroes?
+##' 
+##' @details This is equivalent to \code{abs(subsetMatrix(k)) %*% x} and 
+##' \code{subsetMatrix(k) %*% x}, when \code{x} has length \eqn{2^k}, but is 
+##' much faster if \eqn{k} is large.
+##' 
+##' @export 
+fastMobius <- function(x, pad=FALSE) {
+  len <- length(x)
+  if (len <= 1) return(x)
+  k <- ceiling(log2(len))
+  if (k != log2(len)) {
+    if (!pad) stop("If 'pad=FALSE' then length must be a power of 2")
+    else {
+      x <- c(x, rep(0,2^k - len))
+    }
+  }
+  
+  out <- .C("mobius_c", as.double(x), as.integer(k), PACKAGE = "rje")[[1]]
+  
+  out
+}
+
+##' @describeIn fastMobius inverse transform
+##' @export
+invMobius <- function(x, pad=FALSE) {
+  len <- length(x)
+  if (len <= 1) return(x)
+  k <- ceiling(log2(len))
+  if (k != log2(len)) {
+    if (!pad) stop("If 'pad=FALSE' then length must be a power of 2")
+    else {
+      x <- c(x, rep(0,2^k - len))
+    }
+  }
+  
+  out <- .C("mobiusinv_c", as.double(x), as.integer(k), PACKAGE = "rje")[[1]]
+  
+  out
+}
+
 ##' Kronecker power of a matrix or vector
 ##' 
 ##' @param x matrix or vector
