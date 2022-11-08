@@ -106,9 +106,15 @@ fastHadamard <- function(x, pad=FALSE) {
 ##' @param x vector to transform
 ##' @param pad logical, should vector not of length 2^k be padded with zeroes?
 ##' 
-##' @details This is equivalent to \code{abs(subsetMatrix(k)) %*% x} and 
-##' \code{subsetMatrix(k) %*% x}, when \code{x} has length \eqn{2^k}, but is 
+##' @details These are respectively equivalent to multiplying \code{abs(subsetMatrix(k))} 
+##' and \code{subsetMatrix(k)} by \code{x}, when \code{x} has length \eqn{2^k}, but is 
 ##' much faster if \eqn{k} is large.
+##' 
+##' @examples 
+##' x <- c(1,0,-1,2,4,3,2,1)
+##' M <- subsetMatrix(3)
+##' M %*% abs(M) %*% x
+##' invMobius(fastMobius(x))
 ##' 
 ##' @export 
 fastMobius <- function(x, pad=FALSE) {
