@@ -55,9 +55,9 @@ The length of \code{x} must be equal to \code{prod(n[which])}.
 }
 \section{Functions}{
 \itemize{
-\item \code{patternRepeat0}: Stripped down version that just gives indices
-}}
+\item \code{patternRepeat0()}: Stripped down version that just gives indices
 
+}}
 \examples{
 
 patternRepeat(1:4, c(1,2), c(2,2,2))

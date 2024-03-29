@@ -26,9 +26,9 @@ Determines whether or not every element of \code{x} is also found in
 }
 \section{Functions}{
 \itemize{
-\item \code{\%subof\%}: operator version
-}}
+\item \code{x \%subof\% y}: operator version
 
+}}
 \examples{
 
 is.subset(1:2, 1:3)

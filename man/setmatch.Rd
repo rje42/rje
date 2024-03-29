@@ -27,42 +27,42 @@ supersetmatch(x, y, nomatch = NA_integer_)
 that it is coerced to integer.}
 }
 \value{
-\code{setmatch} and \code{subsetmatch} return a vector of integers
-of length the same as the list \code{x}.
+`setmatch` and `subsetmatch` return a vector of integers
+of length the same as the list `x`.
 
-\code{setsetdiff} returns a sublist \code{x}.
+`setsetdiff` returns a sublist `x`.
 
-\code{setsetequal} returns a logical of length 1.
+`setsetequal` returns a logical of length 1.
 }
 \description{
 Series of functions extending existing vector operations to lists of
 vectors.
 }
 \details{
-\code{setmatch} checks whether each vector in the list \code{x} is also
-contained in the list \code{y}, and if so returns position of the first such
-vector in \code{y}.  The ordering of the elements of the vector is
+`setmatch` checks whether each vector in the list `x` is also
+contained in the list `y`, and if so returns position of the first such
+vector in `y`.  The ordering of the elements of the vector is
 irrelevant, as they are considered to be sets.
 
-\code{subsetmatch} is similar to \code{setmatch}, except vectors in \code{x}
-are searched to see if they are subsets of vectors in \code{y}.  Similarly
-\code{supersetmatch} consideres if vectors in \code{x} are supersets of
-vectors in \code{y}.
+`subsetmatch` is similar to `setmatch`, except vectors in `x`
+are searched to see if they are subsets of vectors in `y`.  Similarly
+`supersetmatch` consideres if vectors in `x` are supersets of
+vectors in `y`.
 
-\code{setsetdiff} is a setwise version of \code{setdiff}, and
-\code{setsetequal} a setwise version of \code{setequal}.
+`setsetdiff` is a setwise version of `setdiff`, and
+`setsetequal` a setwise version of `setequal`.
 }
 \section{Functions}{
 \itemize{
-\item \code{setsetequal}: Test for equality of sets
+\item \code{setsetequal()}: Test for equality of sets
 
-\item \code{setsetdiff}: Setdiff for lists
+\item \code{setsetdiff()}: Setdiff for lists
 
-\item \code{subsetmatch}: Test for subsets
+\item \code{subsetmatch()}: Test for subsets
 
-\item \code{supersetmatch}: Test for supersets
+\item \code{supersetmatch()}: Test for supersets
+
 }}
-
 \note{
 These functions are not recursive, in the sense that they cannot be
 used to test lists of lists.  They also do not reduce to the vector case.

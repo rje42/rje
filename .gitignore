@@ -7,3 +7,4 @@ src/*.dll
 Rprof.out
 *~
 ._*
+src/scratch

@@ -50,13 +50,13 @@ Thus, for example \code{subtable(x, c(2,3), list(1, 1:2))} is
 }
 \section{Functions}{
 \itemize{
-\item \code{subarray}: Flexible subsetting
+\item \code{subarray()}: Flexible subsetting
 
-\item \code{subtable<-}: Assignment in a table
+\item \code{subtable(x, variables, levels) <- value}: Assignment in a table
 
-\item \code{subarray<-}: Assignment in an array
+\item \code{subarray(x, levels) <- value}: Assignment in an array
+
 }}
-
 \examples{
 
 x = array(1:8, rep(2,3))

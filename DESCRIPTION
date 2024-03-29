@@ -1,7 +1,7 @@
 Package: rje
 Type: Package
 Title: Miscellaneous Useful Functions for Statistics
-Version: 1.12.1
+Version: 1.13.0
 Authors@R: c(person("Robin", "Evans", email="evans@stats.ox.ac.uk",
     role=c("aut", "cre")), person("Mathias", "Drton", role=c("ctb")))
 Description: A series of functions in some way considered useful to the author.  These 
@@ -17,5 +17,7 @@ Suggests:
     rmarkdown,
     testthat
 VignetteBuilder: knitr
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.1
 Encoding: UTF-8
+URL: https://github.com/rje42/rje
+BugReports: https://github.com/rje42/rje/issues

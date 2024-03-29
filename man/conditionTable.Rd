@@ -98,11 +98,11 @@ in a flattened R array: i.e. the first value changes fastest: (1,1,1),
 }
 \section{Functions}{
 \itemize{
-\item \code{conditionMatrix}: Conditioning in matrix of distributions
+\item \code{conditionMatrix()}: Conditioning in matrix of distributions
 
-\item \code{conditionTable2}: Conditioning whilst preserving all dimensions
+\item \code{conditionTable2()}: Conditioning whilst preserving all dimensions
+
 }}
-
 \examples{
 
 x = array(1:16, rep(2,4))

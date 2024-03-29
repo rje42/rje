@@ -42,9 +42,9 @@ Under certain causal assumptions this is the interventional distribution
 }
 \section{Functions}{
 \itemize{
-\item \code{interventionMatrix}: Interventions in matrix of distributions
-}}
+\item \code{interventionMatrix()}: Interventions in matrix of distributions
 
+}}
 \examples{
 
 set.seed(413)

@@ -80,9 +80,9 @@ example below).
 }
 \section{Functions}{
 \itemize{
-\item \code{coarseLine}: Coarse line search
-}}
+\item \code{coarseLine()}: Coarse line search
 
+}}
 \examples{
 
 # minimisation of simple function of three variables

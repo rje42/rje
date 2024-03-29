@@ -4,18 +4,18 @@
 #' which other subsets.
 #' 
 #' This function returns a matrix, with each row and column corresponding to a
-#' subset of a hypothetical set of size \code{n}, ordered lexographically.  The
-#' entry in row \code{i}, column \code{j} corresponds to whether or not the
-#' subset associated with \code{i} is a superset of that associated with
-#' \code{j}.
+#' subset of a hypothetical set of size `n`, ordered lexographically.  The
+#' entry in row `i`, column `j` corresponds to whether or not the
+#' subset associated with `i` is a superset of that associated with
+#' `j`.
 #' 
-#' A 1 or -1 indicates that \code{i} is a superset of \code{j}, with the sign
-#' referring to the number of fewer elements in \code{j}.  0 indicates that
-#' \code{i} is not a superset of \code{j}.
+#' A 1 or -1 indicates that `i` is a superset of `j`, with the sign
+#' referring to the number of fewer elements in `j`.  0 indicates that
+#' `i` is not a superset of `j`.
 #' 
 #' @param n integer containing the number of elements in the set.
 #' @return An integer matrix of dimension 2^n by 2^n.
-#' @note The inverse of the output matrix is just \code{abs(subsetMatrix(n))}.
+#' @note The inverse of the output matrix is just `abs(subsetMatrix(n))`.
 #' @author Robin Evans
 #' @seealso \code{\link{combinations}}, \code{\link{powerSet}},  \code{\link{designMatrix}}.
 #' @keywords arith
@@ -71,7 +71,7 @@ designMatrix <-
 #' @param x vector of values to be transformed
 #' @param pad optional logical asking whether vector not of length \eqn{2^k} should be
 #' padded with zeroes
-#' @details This is equivalent to multiplying by \code{designMatrix(log2(length(x)))} 
+#' @details This is equivalent to multiplying by `designMatrix(log2(length(x)))` 
 #' but should run much faster
 #' @return A vector of the same length as x
 #' @author Robin Evans
@@ -106,8 +106,8 @@ fastHadamard <- function(x, pad=FALSE) {
 ##' @param x vector to transform
 ##' @param pad logical, should vector not of length 2^k be padded with zeroes?
 ##' 
-##' @details These are respectively equivalent to multiplying \code{abs(subsetMatrix(k))} 
-##' and \code{subsetMatrix(k)} by \code{x}, when \code{x} has length \eqn{2^k}, but is 
+##' @details These are respectively equivalent to multiplying `abs(subsetMatrix(k))` 
+##' and `subsetMatrix(k)` by `x`, when `x` has length \eqn{2^k}, but is 
 ##' much faster if \eqn{k} is large.
 ##' 
 ##' @examples 
@@ -159,8 +159,8 @@ invMobius <- function(x, pad=FALSE) {
 ##' @param n integer containing power to take
 ##' 
 ##' @details This computes \code{x \%x\% ... \%x\% x} 
-##' for \code{n} 
-##' instances of \code{x}. 
+##' for `n` 
+##' instances of `x`. 
 ##' 
 ##' @export
 kronPower <- function(x, n) {

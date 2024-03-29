@@ -39,9 +39,9 @@ of the elements of the vector \code{x}.
 }
 \section{Functions}{
 \itemize{
-\item \code{powerSetCond}: Add sets that can't be empty
-}}
+\item \code{powerSetCond()}: Add sets that can't be empty
 
+}}
 \examples{
 
 powerSet(1:3)

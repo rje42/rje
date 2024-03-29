@@ -1,3 +1,11 @@
+2024-03-29 Version 1.13.0
+
+* Added function to check for sets being nested
+
+* Added function to look for duplicate rows.
+
+---
+
 2022-11-08 Version 1.12.0
 
 * Added functions for fast Moebius and Hadamard transforms.

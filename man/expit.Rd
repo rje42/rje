@@ -28,9 +28,9 @@ for \code{expit}.
 }
 \section{Functions}{
 \itemize{
-\item \code{logit}: logit function
-}}
+\item \code{logit()}: logit function
 
+}}
 \section{Warning }{
  Choosing very large (positive or negative) values to
 apply to \code{expit} may result in inaccurate inversion (see example

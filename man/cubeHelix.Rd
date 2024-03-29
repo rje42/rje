@@ -22,7 +22,7 @@ greyscale, defaults to 1}
 intensity values, defaults to 1}
 }
 \value{
-Vector of RGB colours (strings) of length \code{n}.
+Vector of RGB colours (strings) of length `n`.
 }
 \description{
 Cube Helix is a colour scheme designed to be appropriate for screen display

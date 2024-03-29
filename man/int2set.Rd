@@ -33,6 +33,6 @@ than 31 elements.
 }
 \section{Functions}{
 \itemize{
-\item \code{set2int}: Convert sets to integers
-}}
+\item \code{set2int()}: Convert sets to integers
 
+}}

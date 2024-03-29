@@ -25,9 +25,9 @@ much faster if \eqn{k} is large.
 }
 \section{Functions}{
 \itemize{
-\item \code{invMobius}: inverse transform
-}}
+\item \code{invMobius()}: inverse transform
 
+}}
 \examples{
 x <- c(1,0,-1,2,4,3,2,1)
 M <- subsetMatrix(3)

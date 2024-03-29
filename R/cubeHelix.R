@@ -21,7 +21,7 @@
 #' greyscale, defaults to 1
 #' @param gamma numeric which can be used to emphasise lower or higher
 #' intensity values, defaults to 1
-#' @return Vector of RGB colours (strings) of length \code{n}.
+#' @return Vector of RGB colours (strings) of length `n`.
 #' @author Dave Green
 #' 
 #' Robin Evans
